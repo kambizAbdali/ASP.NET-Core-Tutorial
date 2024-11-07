@@ -1,0 +1,5 @@
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\obj\Debug\LINQ__Join_And_GroupJoin.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\obj\Debug\LINQ__Join_And_GroupJoin.csproj.SuggestedBindingRedirects.cache
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\obj\Debug\LINQ__Join_And_GroupJoin.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\obj\Debug\LINQ__Join.exe
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\obj\Debug\LINQ__Join.pdb

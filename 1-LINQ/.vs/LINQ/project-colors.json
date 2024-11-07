@@ -1,11 +1,16 @@
 {
   "Version": 1,
   "ProjectMap": {
+    "8e8233d7-6174-46eb-af23-d5e1e35cff10": {
+      "ProjectGuid": "8e8233d7-6174-46eb-af23-d5e1e35cff10",
+      "DisplayName": "LINQ_Join",
+      "ColorIndex": 0
+    },
     "c5b2bf24-071c-416f-97c9-86ca43a6ff8c": {
       "ProjectGuid": "c5b2bf24-071c-416f-97c9-86ca43a6ff8c",
       "DisplayName": "LINQ__Join",
-      "ColorIndex": 0
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
