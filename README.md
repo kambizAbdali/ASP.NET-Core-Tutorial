@@ -1,5 +1,4 @@
 # ASP.NET Core Tutorial
-# ASP.NET Core Tutorial Repository  
 
 Welcome to the ASP.NET Core Tutorial Repository! This repository is designed to provide a comprehensive guide to various aspects of ASP.NET Core development, including LINQ, Entity Framework Core, Unit Testing, and much more. The content is structured into chapters, each containing a series of tutorials.  
 
