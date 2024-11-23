@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LINQ__Join_And_GroupJoin.Models
+namespace Domain.Models
 {
     public class Category
     {

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LINQ__Join_And_GroupJoin.Models
+namespace DataLayer.Models
 {
-    public class Product
+    public class Category
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int CategoryId { get; set; }
     }
-
 }

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5B2BF24-071C-416F-97C9-86CA43A6FF8C}</ProjectGuid>
+    <ProjectGuid>{F2097414-91D9-4719-BB4B-E45AADE8F95E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>LINQ__Join</RootNamespace>
-    <AssemblyName>LINQ__Join</AssemblyName>
+    <RootNamespace>LINQ__Elements__</RootNamespace>
+    <AssemblyName>LINQ__Elements__</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

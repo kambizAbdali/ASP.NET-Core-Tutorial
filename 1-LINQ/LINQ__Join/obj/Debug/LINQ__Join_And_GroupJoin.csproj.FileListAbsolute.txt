@@ -6,3 +6,7 @@ D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\obj\Debug\LINQ__Join.pdb
 D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\bin\Debug\LINQ__Join.exe.config
 D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\bin\Debug\LINQ__Join.exe
 D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\bin\Debug\LINQ__Join.pdb
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\bin\Debug\Domain.exe
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\bin\Debug\Domain.pdb
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\bin\Debug\Domain.exe.config
+D:\.Net\ASP.NET-Core-Tutorial\1-LINQ\LINQ__Join\obj\Debug\LINQ__Join_And_GroupJoin.csproj.CopyComplete
