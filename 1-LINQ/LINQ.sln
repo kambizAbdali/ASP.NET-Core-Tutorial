@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Quantifiers", "Quantif
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ__Elements__", "LINQ__Elements__\LINQ__Elements__.csproj", "{F2097414-91D9-4719-BB4B-E45AADE8F95E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Set_Cancat", "LINQ_Set_Cancat\LINQ_Set_Cancat.csproj", "{F0D37265-186D-4B01-A47D-B2B9111888D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F2097414-91D9-4719-BB4B-E45AADE8F95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2097414-91D9-4719-BB4B-E45AADE8F95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2097414-91D9-4719-BB4B-E45AADE8F95E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0D37265-186D-4B01-A47D-B2B9111888D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0D37265-186D-4B01-A47D-B2B9111888D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0D37265-186D-4B01-A47D-B2B9111888D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0D37265-186D-4B01-A47D-B2B9111888D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
