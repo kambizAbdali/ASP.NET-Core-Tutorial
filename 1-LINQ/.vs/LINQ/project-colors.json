@@ -40,7 +40,42 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "f2097414-91d9-4719-bb4b-e45aade8f95e": {
+      "ProjectGuid": "f2097414-91d9-4719-bb4b-e45aade8f95e",
+      "DisplayName": "LINQ__Elements__",
+      "ColorIndex": 7
+    },
+    "5530bbaf-38c8-4986-bd61-96576f8dd5cb": {
+      "ProjectGuid": "5530bbaf-38c8-4986-bd61-96576f8dd5cb",
+      "DisplayName": "LINQ_Set_Concat",
+      "ColorIndex": 8
+    },
+    "f0d37265-186d-4b01-a47d-b2b9111888d1": {
+      "ProjectGuid": "f0d37265-186d-4b01-a47d-b2b9111888d1",
+      "DisplayName": "LINQ_Set_Cancat",
+      "ColorIndex": 9
+    },
+    "5333fab1-1d00-4378-b279-a9bcacf6cfe0": {
+      "ProjectGuid": "5333fab1-1d00-4378-b279-a9bcacf6cfe0",
+      "DisplayName": "LINQ_Partitioning",
+      "ColorIndex": 10
+    },
+    "adb3d42f-7264-4212-8e5e-cc620f710539": {
+      "ProjectGuid": "adb3d42f-7264-4212-8e5e-cc620f710539",
+      "DisplayName": "LINQ_Generation",
+      "ColorIndex": 11
+    },
+    "fe4f92a9-b6c6-4d33-b265-57a5603e8930": {
+      "ProjectGuid": "fe4f92a9-b6c6-4d33-b265-57a5603e8930",
+      "DisplayName": "Conversion",
+      "ColorIndex": 12
+    },
+    "10e1561e-0b18-4700-9664-9239b2d7c376": {
+      "ProjectGuid": "10e1561e-0b18-4700-9664-9239b2d7c376",
+      "DisplayName": "LINQ_Conversion",
+      "ColorIndex": 13
     }
   },
-  "NextColorIndex": 7
+  "NextColorIndex": 14
 }

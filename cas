@@ -1,0 +1,71 @@
+[33mcommit 8bc47e00783287f5f44c21d41a1c1a04fb06b058[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: kambiz abdali <kambizabdali@gmail.com>
+Date:   Fri Dec 6 12:56:40 2024 +0330
+
+    Add LINQ projects: Conversion, Generation, and Partitioning.
+
+[33mcommit df03483cde0eb398d31a200a1ff2e9593ae530dd[m
+Author: kambiz abdali <kambizabdali@gmail.com>
+Date:   Fri Nov 29 20:57:36 2024 +0330
+
+    Add LINQ_Set_Cancat Project
+
+[33mcommit fa6cfd45274bf544b7b36ff2e43861bdcdf16504[m
+Author: kambiz abdali <kambizabdali@gmail.com>
+Date:   Sat Nov 23 22:42:56 2024 +0330
+
+    Add Following Projects:
+    LINQ__Elements__
+    LINQ_Aggregate
+    LINQ_Quantifiers
+
+[33mcommit 3c219f77519368f88692b082996b50527698bd1d[m
+Author: kambiz abdali <kambizabdali@gmail.com>
+Date:   Thu Nov 7 15:54:22 2024 +0330
+
+    Add Git ignore file.
+
+[33mcommit 082f3e9d32ce94b2a259e6518190fe9188927989[m
+Author: kambiz abdali <kambizabdali@gmail.com>
+Date:   Thu Nov 7 15:43:31 2024 +0330
+
+    change namespaceses.
+
+[33mcommit eee4e5cb221c19c35631b8abcc5396b662d027bc[m
+Author: kambiz abdali <kambizabdali@gmail.com>
+Date:   Thu Nov 7 15:41:03 2024 +0330
+
+    .
+
+[33mcommit 455b9dabf620e50f266c18d904e087d71c42b1bf[m
+Author: kambiz abdali <kambizabdali@gmail.com>
+Date:   Thu Nov 7 15:39:13 2024 +0330
+
+    Add LINQ join examples with method and query syntax
+    
+    - Implemented product and category joins using both method and query syntax.
+    - Added grouping functionality for products by category with both approaches.
+
+[33mcommit d547d34cc318aec05b950bf11f7a7c48d5ef5f36[m
+Author: Kambiz Abdali <101436408+kambizAbdali@users.noreply.github.com>
+Date:   Thu Nov 7 14:07:21 2024 +0330
+
+    Update README.md
+
+[33mcommit 658d7ab429faf0be1fa80e1f2cad828cff5decf9[m
+Author: Kambiz Abdali <101436408+kambizAbdali@users.noreply.github.com>
+Date:   Thu Nov 7 14:06:29 2024 +0330
+
+    Update README.md
+
+[33mcommit 725fbeb6d984740d1eb9c4632960d34da8ca3f3f[m
+Author: Kambiz Abdali <101436408+kambizAbdali@users.noreply.github.com>
+Date:   Thu Nov 7 14:03:46 2024 +0330
+
+    Update LICENSE
+
+[33mcommit 5f79ffb2fe636c261e86aaf35a455fa260a2bbd5[m
+Author: Kambiz Abdali <101436408+kambizAbdali@users.noreply.github.com>
+Date:   Fri Sep 8 11:46:32 2023 +0330
+
+    Initial commit
