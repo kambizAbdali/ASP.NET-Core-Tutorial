@@ -5,3 +5,4 @@ D:\.Net\ASP.NET-Core-Tutorial\2-UnitTest\Calculator\bin\Debug\Calculator.exe
 D:\.Net\ASP.NET-Core-Tutorial\2-UnitTest\Calculator\bin\Debug\Calculator.pdb
 D:\.Net\ASP.NET-Core-Tutorial\2-UnitTest\Calculator\obj\Debug\Calculator.exe
 D:\.Net\ASP.NET-Core-Tutorial\2-UnitTest\Calculator\obj\Debug\Calculator.pdb
+D:\.Net\ASP.NET-Core-Tutorial\2-UnitTest\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
