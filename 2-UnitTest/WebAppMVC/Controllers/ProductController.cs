@@ -13,7 +13,7 @@ namespace WebAppMVC.Controllers
         public ProductController(IProductService productService)
         {
             _productService = productService;
-        }
+        } 
 
         // GET: ProductController  
         public ActionResult Index()
