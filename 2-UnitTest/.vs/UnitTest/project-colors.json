@@ -11,11 +11,41 @@
       "DisplayName": "Calculator.Test",
       "ColorIndex": 1
     },
+    "88371621-6a44-4b0e-bc59-43e0a0c14b76": {
+      "ProjectGuid": "88371621-6a44-4b0e-bc59-43e0a0c14b76",
+      "DisplayName": "WebAppMVC",
+      "ColorIndex": 2
+    },
+    "7ff6851e-6d54-4f76-9528-7d042cfdef73": {
+      "ProjectGuid": "7ff6851e-6d54-4f76-9528-7d042cfdef73",
+      "DisplayName": "WebAppMVC.Test",
+      "ColorIndex": 3
+    },
     "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "7b2fa245-81c2-418c-a544-7f28339450f7": {
+      "ProjectGuid": "7b2fa245-81c2-418c-a544-7f28339450f7",
+      "DisplayName": "TDD.Test",
+      "ColorIndex": 4
+    },
+    "4cafed5b-bb64-4051-9ea4-27b74350119a": {
+      "ProjectGuid": "4cafed5b-bb64-4051-9ea4-27b74350119a",
+      "DisplayName": "TDD",
+      "ColorIndex": 5
+    },
+    "d410f656-c071-4c5b-bb71-31ea9ca0b0e2": {
+      "ProjectGuid": "d410f656-c071-4c5b-bb71-31ea9ca0b0e2",
+      "DisplayName": "MoqFrameworkSampleTest",
+      "ColorIndex": 6
+    },
+    "d2364c7d-1f3d-43fa-b72b-4f75b488004a": {
+      "ProjectGuid": "d2364c7d-1f3d-43fa-b72b-4f75b488004a",
+      "DisplayName": "MoqFrameworkSample",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 8
 }

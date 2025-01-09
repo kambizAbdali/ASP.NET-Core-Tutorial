@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Jmw74p6/sYz2ZRlMASwx0iFWGepXP80g9TqBPEcsv1K6DPeyctn742We5brynYL5I3FSJ/vZWDgdZXLIFofv9w==",
+  "success": true,
+  "projectFilePath": "D:\\.Net\\ASP.NET-Core-Tutorial\\2-UnitTest\\MoqFrameworkSample\\MoqFrameworkSample.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\OH\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\OH\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\OH\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
+    "C:\\Users\\OH\\.nuget\\packages\\xunit.assert\\2.9.2\\xunit.assert.2.9.2.nupkg.sha512"
+  ],
+  "logs": []
+}
