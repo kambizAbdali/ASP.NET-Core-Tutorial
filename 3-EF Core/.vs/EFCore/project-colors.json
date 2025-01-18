@@ -1,0 +1,56 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "de5edfd8-f1ca-48a3-b03c-783ba7630785": {
+      "ProjectGuid": "de5edfd8-f1ca-48a3-b03c-783ba7630785",
+      "DisplayName": "DatabaseFirst",
+      "ColorIndex": 0
+    },
+    "d04b4dd4-824c-486e-aa4d-0e4d9ca0ebf5": {
+      "ProjectGuid": "d04b4dd4-824c-486e-aa4d-0e4d9ca0ebf5",
+      "DisplayName": "ConsoleAppDatabaseFirst",
+      "ColorIndex": 1
+    },
+    "05af1641-12f1-4bb3-82f7-07743097b7a8": {
+      "ProjectGuid": "05af1641-12f1-4bb3-82f7-07743097b7a8",
+      "DisplayName": "ConsoleAppDatabaseFirst",
+      "ColorIndex": 2
+    },
+    "6ba25405-2f97-465e-8293-1a66ab5d7025": {
+      "ProjectGuid": "6ba25405-2f97-465e-8293-1a66ab5d7025",
+      "DisplayName": "ConsoleAppDatabaseFirst",
+      "ColorIndex": 3
+    },
+    "f60da933-6915-4c41-9880-c407574ae9b5": {
+      "ProjectGuid": "f60da933-6915-4c41-9880-c407574ae9b5",
+      "DisplayName": "DotNetCoreDBFirst",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "00c8332b-ff93-4526-87be-49c7f22a8130": {
+      "ProjectGuid": "00c8332b-ff93-4526-87be-49c7f22a8130",
+      "DisplayName": "WebAppCodeFirst.UI",
+      "ColorIndex": 5
+    },
+    "08a50d62-565a-4410-96f4-315241f2c96b": {
+      "ProjectGuid": "08a50d62-565a-4410-96f4-315241f2c96b",
+      "DisplayName": "WebAppCodeFirst.UI",
+      "ColorIndex": 6
+    },
+    "0f252278-13ca-49cf-8e6b-aa7057470429": {
+      "ProjectGuid": "0f252278-13ca-49cf-8e6b-aa7057470429",
+      "DisplayName": "Application",
+      "ColorIndex": 7
+    },
+    "12896323-13d3-4859-9065-11758d5f17c0": {
+      "ProjectGuid": "12896323-13d3-4859-9065-11758d5f17c0",
+      "DisplayName": "Domain",
+      "ColorIndex": 8
+    }
+  },
+  "NextColorIndex": 9
+}
