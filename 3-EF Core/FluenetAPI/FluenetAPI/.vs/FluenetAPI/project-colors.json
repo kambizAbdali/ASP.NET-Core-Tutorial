@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "34be2cd0-9393-47c3-9df5-e2bf8d4bcc7a": {
+      "ProjectGuid": "34be2cd0-9393-47c3-9df5-e2bf8d4bcc7a",
+      "DisplayName": "FluenetAPI",
+      "ColorIndex": 0
+    },
+    "cf0f6630-96f6-45c0-a0f1-a035fd9f056e": {
+      "ProjectGuid": "cf0f6630-96f6-45c0-a0f1-a035fd9f056e",
+      "DisplayName": "DAL",
+      "ColorIndex": 1
+    },
+    "4041d986-eb55-42fd-957b-421681fdadaf": {
+      "ProjectGuid": "4041d986-eb55-42fd-957b-421681fdadaf",
+      "DisplayName": "Entites",
+      "ColorIndex": 2
+    },
+    "e4c18e8d-474f-49fc-bd25-8267572cc66c": {
+      "ProjectGuid": "e4c18e8d-474f-49fc-bd25-8267572cc66c",
+      "DisplayName": "UI",
+      "ColorIndex": 3
+    },
+    "3645ab8f-ea2c-412b-b220-6d8c4a50fbd2": {
+      "ProjectGuid": "3645ab8f-ea2c-412b-b220-6d8c4a50fbd2",
+      "DisplayName": "UI_",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

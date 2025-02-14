@@ -1,0 +1,17 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\bin\Debug\net6.0\UI.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\bin\Debug\net6.0\UI.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\bin\Debug\net6.0\ref\UI.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\bin\Debug\net6.0\UI.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\UI.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\UI.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\UI.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\UI.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\UI.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\UI.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\ref\UI.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\UI.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\bin\Debug\net6.0\DAL.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\bin\Debug\net6.0\Entites.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\bin\Debug\net6.0\DAL.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\bin\Debug\net6.0\Entites.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\FluenetAPI\FluenetAPI\UI\obj\Debug\net6.0\UI.csproj.CopyComplete
