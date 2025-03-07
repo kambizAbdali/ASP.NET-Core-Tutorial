@@ -1,0 +1,17 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\bin\Debug\net6.0\DAL.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\bin\Debug\net6.0\DAL.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\bin\Debug\net6.0\ref\DAL.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\bin\Debug\net6.0\DAL.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\bin\Debug\net6.0\Entites.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\bin\Debug\net6.0\Entites.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\ref\DAL.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Relationships\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
