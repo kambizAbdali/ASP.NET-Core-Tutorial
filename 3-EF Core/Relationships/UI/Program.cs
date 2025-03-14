@@ -1,4 +1,4 @@
-// UILayer  
+﻿// UILayer  
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -38,6 +38,14 @@ namespace UILayer
                     context.Courses.AddRange(course1, course2);
                     context.Students.AddRange(student1, student2);
 
+                    context.Entry(course1).Property("CreatedDate").CurrentValue = DateTime.Now; // تنظیم تاریخ ایجاد  
+                    context.Entry(course1).Property("UpdatedDate").CurrentValue = DateTime.Now; // تنظیم تاریخ ویرایش  
+
+
+                    context.Entry(course2).Property("CreatedDate").CurrentValue = DateTime.Now; // تنظیم تاریخ ایجاد  
+                    context.Entry(course2).Property("UpdatedDate").CurrentValue = DateTime.Now; // تنظیم تاریخ ویرایش  
+
+
                     context.SaveChanges();
 
                     context.StudentCourses.Add(new StudentCourse { Student = student1, Course = course1 });
@@ -45,6 +53,9 @@ namespace UILayer
                     context.StudentCourses.Add(new StudentCourse { Student = student1, Course = course2 }); // Alice takes Calculus as well  
                     context.SaveChanges();
                 }
+
+
+
 
                 // Example of querying data  
                 var students = context.Students

@@ -78,6 +78,31 @@ namespace DAL
                 .WithMany(p => p.Students)
                 .HasForeignKey(s => s.AdvisorId)
                 .OnDelete(DeleteBehavior.NoAction); // Or DeleteBehavior.Cascade  
+
+            // تنظیم Shadow Properties برای Course  
+            modelBuilder.Entity<Course>()
+                .Property<DateTime>("CreatedDate");
+            modelBuilder.Entity<Course>()
+                .Property<DateTime>("UpdatedDate");
+
+            // تنظیم Shadow Properties برای Employee  
+            modelBuilder.Entity<Employee>()
+                .Property<DateTime>("CreatedDate");
+            modelBuilder.Entity<Employee>()
+                .Property<DateTime>("UpdatedDate");
+
+            // تنظیم Shadow Properties برای Exam  
+            modelBuilder.Entity<Exam>()
+                .Property<DateTime>("CreatedDate");
+            modelBuilder.Entity<Exam>()
+                .Property<DateTime>("UpdatedDate");
+
+            // تنظیم Shadow Properties برای Professor  
+            modelBuilder.Entity<Professor>()
+                .Property<DateTime>("CreatedDate");
+            modelBuilder.Entity<Professor>()
+                .Property<DateTime>("UpdatedDate");
+
         }
     }
 }

@@ -5,7 +5,22 @@
       "ProjectGuid": "1ef86199-58fc-44a7-99ee-f33a41f28064",
       "DisplayName": "Relationships",
       "ColorIndex": 0
+    },
+    "3d9feec6-c45c-4516-8033-c2b65fb4e5d7": {
+      "ProjectGuid": "3d9feec6-c45c-4516-8033-c2b65fb4e5d7",
+      "DisplayName": "Entites",
+      "ColorIndex": 1
+    },
+    "eb87b6cd-5592-4981-ab61-74286c4e827f": {
+      "ProjectGuid": "eb87b6cd-5592-4981-ab61-74286c4e827f",
+      "DisplayName": "DAL",
+      "ColorIndex": 2
+    },
+    "ed05b085-4e16-4735-b857-06f51b83cc1c": {
+      "ProjectGuid": "ed05b085-4e16-4735-b857-06f51b83cc1c",
+      "DisplayName": "UI",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }
