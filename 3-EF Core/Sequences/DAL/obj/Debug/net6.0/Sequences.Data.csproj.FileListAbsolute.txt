@@ -1,0 +1,17 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\bin\Debug\net6.0\Sequences.Data.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\bin\Debug\net6.0\Sequences.Data.runtimeconfig.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\bin\Debug\net6.0\Sequences.Data.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\bin\Debug\net6.0\ref\Sequences.Data.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\bin\Debug\net6.0\Sequences.Data.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\bin\Debug\net6.0\Sequences.Models.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\bin\Debug\net6.0\Sequences.Models.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.csproj.CopyComplete
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\ref\Sequences.Data.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\DAL\obj\Debug\net6.0\Sequences.Data.genruntimeconfig.cache

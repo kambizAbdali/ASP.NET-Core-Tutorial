@@ -1,0 +1,8 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\UI\bin\Debug\UI.exe.config
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\UI\bin\Debug\UI.exe
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\UI\bin\Debug\UI.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\UI\obj\Debug\UI.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\UI\obj\Debug\UI.csproj.SuggestedBindingRedirects.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\UI\obj\Debug\UI.exe
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\UI\obj\Debug\UI.pdb

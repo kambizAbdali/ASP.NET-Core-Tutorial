@@ -12,7 +12,6 @@ optionsBuilder.UseSqlServer(@"Server =.; Database = TestDB; Integrated Security 
 
 using (var context = new ApplicationContext(optionsBuilder.Options))
 {
-    context.Database.EnsureDeleted();
     // Ensure the database is created  
     context.Database.EnsureCreated();
 }

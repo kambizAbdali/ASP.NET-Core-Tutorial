@@ -1,0 +1,11 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\bin\Debug\net6.0\Entites.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\bin\Debug\net6.0\Entites.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\bin\Debug\net6.0\ref\Entites.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\bin\Debug\net6.0\Entites.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\obj\Debug\net6.0\Entites.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\obj\Debug\net6.0\Entites.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\obj\Debug\net6.0\Entites.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\obj\Debug\net6.0\Entites.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\obj\Debug\net6.0\Entites.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\obj\Debug\net6.0\ref\Entites.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\Sequences\Entites\obj\Debug\net6.0\Entites.pdb

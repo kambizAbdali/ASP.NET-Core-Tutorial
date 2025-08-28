@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4ad18b7a-fc2c-456b-9843-1ee43ff454e2": {
+      "ProjectGuid": "4ad18b7a-fc2c-456b-9843-1ee43ff454e2",
+      "DisplayName": "Sequences",
+      "ColorIndex": 0
+    },
+    "d5a0f44d-5202-4c1c-b136-560875b3bc78": {
+      "ProjectGuid": "d5a0f44d-5202-4c1c-b136-560875b3bc78",
+      "DisplayName": "UI",
+      "ColorIndex": 1
+    },
+    "6e3d3463-4c8f-476d-bbd3-72370a21c4c8": {
+      "ProjectGuid": "6e3d3463-4c8f-476d-bbd3-72370a21c4c8",
+      "DisplayName": "Sequences.Models",
+      "ColorIndex": 2
+    },
+    "4e9d4af8-7df7-431f-9024-777edbedc0cd": {
+      "ProjectGuid": "4e9d4af8-7df7-431f-9024-777edbedc0cd",
+      "DisplayName": "Sequences.Data",
+      "ColorIndex": 3
+    },
+    "7a0710f8-c5b8-4d1a-889f-3a12aa2a471b": {
+      "ProjectGuid": "7a0710f8-c5b8-4d1a-889f-3a12aa2a471b",
+      "DisplayName": "Sequences.Web",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 5
+}

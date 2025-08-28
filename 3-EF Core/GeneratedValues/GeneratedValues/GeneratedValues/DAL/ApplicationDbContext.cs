@@ -25,10 +25,10 @@ namespace GeneratedValues.DAL
                     .ValueGeneratedNever();
 
                 // Remove Identity from IdentityCol  
-                entity.Property(e => e.IdentityColumn).ValueGeneratedNever();
+                entity.Property(e => e.IdentityCol);
 
                 // Default Value  
-                entity.Property(e => e.CreatedAdd)
+                entity.Property(e => e.CreatedAt)
                     .HasDefaultValueSql("GETDATE()");
 
                 // Computed Column  
