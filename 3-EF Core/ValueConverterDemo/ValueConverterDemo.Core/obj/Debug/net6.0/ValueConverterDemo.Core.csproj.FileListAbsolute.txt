@@ -1,0 +1,12 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\bin\Debug\net6.0\ValueConverterDemo.Core.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\bin\Debug\net6.0\ValueConverterDemo.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\bin\Debug\net6.0\ref\ValueConverterDemo.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\bin\Debug\net6.0\ValueConverterDemo.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\obj\Debug\net6.0\ValueConverterDemo.Core.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\obj\Debug\net6.0\ValueConverterDemo.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\obj\Debug\net6.0\ValueConverterDemo.Core.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\obj\Debug\net6.0\ValueConverterDemo.Core.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\obj\Debug\net6.0\ValueConverterDemo.Core.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\obj\Debug\net6.0\ValueConverterDemo.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\obj\Debug\net6.0\ref\ValueConverterDemo.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ValueConverterDemo\ValueConverterDemo.Core\obj\Debug\net6.0\ValueConverterDemo.Core.pdb

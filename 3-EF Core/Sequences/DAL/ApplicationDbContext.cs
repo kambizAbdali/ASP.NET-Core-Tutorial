@@ -23,6 +23,8 @@ namespace Sequences.Data
                 .Property(o => o.Id)
                 .HasDefaultValueSql("NEXT VALUE FOR ProductHiLoSequence"); // Use the sequence name without "dbo."
 
+
+
             base.OnModelCreating(modelBuilder);
         }
     }
