@@ -29,5 +29,7 @@ namespace ValueConverterDemo.Core.Models
 
         // The product's shipping preference, stored as a ShippingPreference enum.
         public ShippingPreference PreferredShipping { get; set; }
+
+        public bool Active { get; set; }=true;
     }
 }

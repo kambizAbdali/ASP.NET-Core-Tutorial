@@ -20,21 +20,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 var app = builder.Build();
 
 
-// Apply migrations
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    try
-    {
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        context.Database.Migrate(); // Apply any pending migrations
-    }
-    catch (Exception ex)
-    {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while migrating the database.");
-    }
-}
+
 
 
 // Configure the HTTP request pipeline.

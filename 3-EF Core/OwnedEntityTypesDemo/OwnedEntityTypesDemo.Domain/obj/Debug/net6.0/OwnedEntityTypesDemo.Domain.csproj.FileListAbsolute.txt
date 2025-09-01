@@ -1,0 +1,12 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\bin\Debug\net6.0\OwnedEntityTypesDemo.Domain.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\bin\Debug\net6.0\OwnedEntityTypesDemo.Domain.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\bin\Debug\net6.0\ref\OwnedEntityTypesDemo.Domain.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\bin\Debug\net6.0\OwnedEntityTypesDemo.Domain.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\obj\Debug\net6.0\OwnedEntityTypesDemo.Domain.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\obj\Debug\net6.0\OwnedEntityTypesDemo.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\obj\Debug\net6.0\OwnedEntityTypesDemo.Domain.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\obj\Debug\net6.0\OwnedEntityTypesDemo.Domain.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\obj\Debug\net6.0\OwnedEntityTypesDemo.Domain.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\obj\Debug\net6.0\OwnedEntityTypesDemo.Domain.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\obj\Debug\net6.0\ref\OwnedEntityTypesDemo.Domain.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Domain\obj\Debug\net6.0\OwnedEntityTypesDemo.Domain.pdb

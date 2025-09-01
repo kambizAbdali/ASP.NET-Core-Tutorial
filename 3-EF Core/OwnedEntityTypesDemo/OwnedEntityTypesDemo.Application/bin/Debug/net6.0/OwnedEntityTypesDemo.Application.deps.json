@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "OwnedEntityTypesDemo.Application/1.0.0": {
+        "dependencies": {
+          "OwnedEntityTypesDemo.Domain": "1.0.0"
+        },
+        "runtime": {
+          "OwnedEntityTypesDemo.Application.dll": {}
+        }
+      },
+      "OwnedEntityTypesDemo.Domain/1.0.0": {
+        "runtime": {
+          "OwnedEntityTypesDemo.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OwnedEntityTypesDemo.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OwnedEntityTypesDemo.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

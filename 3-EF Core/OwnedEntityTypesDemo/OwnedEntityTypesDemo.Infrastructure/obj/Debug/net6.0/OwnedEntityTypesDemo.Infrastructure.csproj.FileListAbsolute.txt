@@ -1,0 +1,17 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\bin\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\bin\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\bin\Debug\net6.0\ref\OwnedEntityTypesDemo.Infrastructure.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\bin\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\ref\OwnedEntityTypesDemo.Infrastructure.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\bin\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.runtimeconfig.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.genruntimeconfig.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\bin\Debug\net6.0\OwnedEntityTypesDemo.Domain.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\bin\Debug\net6.0\OwnedEntityTypesDemo.Domain.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Infrastructure\obj\Debug\net6.0\OwnedEntityTypesDemo.Infrastructure.csproj.CopyComplete

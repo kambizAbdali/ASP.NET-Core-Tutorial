@@ -33,7 +33,7 @@ using (var scope = app.Services.CreateScope())
         if (!context.Products.Any()) // Check if there's any data already
         {
             context.Products.AddRange(
-                new Product { ProductName = "Laptop", Price = 1200, PreferredShipping = ShippingPreference.Express },
+                new Product { ProductName = "Laptop", Price = 1200, PreferredShipping = ShippingPreference.Express, Active = false },
                 new Product { ProductName = "Mouse", Price = 25, PreferredShipping = ShippingPreference.Standard }
             );
             context.SaveChanges();

@@ -1,0 +1,15 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\bin\Debug\net6.0\OwnedEntityTypesDemo.Application.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\bin\Debug\net6.0\OwnedEntityTypesDemo.Application.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\bin\Debug\net6.0\ref\OwnedEntityTypesDemo.Application.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\bin\Debug\net6.0\OwnedEntityTypesDemo.Application.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\bin\Debug\net6.0\OwnedEntityTypesDemo.Domain.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\bin\Debug\net6.0\OwnedEntityTypesDemo.Domain.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\OwnedEntityTypesDemo.Application.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\OwnedEntityTypesDemo.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\OwnedEntityTypesDemo.Application.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\OwnedEntityTypesDemo.Application.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\OwnedEntityTypesDemo.Application.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\OwnedEntityTypesDemo.Application.csproj.CopyComplete
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\OwnedEntityTypesDemo.Application.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\ref\OwnedEntityTypesDemo.Application.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\OwnedEntityTypesDemo\OwnedEntityTypesDemo.Application\obj\Debug\net6.0\OwnedEntityTypesDemo.Application.pdb
