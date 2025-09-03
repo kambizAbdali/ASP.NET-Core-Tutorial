@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using OwnedEntityTypesDemo.Domain.Entities;
 using OwnedEntityTypesDemo.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,15 +28,19 @@ using (var scope = app.Services.CreateScope())
         context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
 
-        //// Seed Data
-        //if (!context.Products.Any()) // Check if there's any data already
-        //{
-        //    context.Products.AddRange(
-        //        new Product { ProductName = "Laptop", Price = 1200, PreferredShipping = ShippingPreference.Express, Active = false },
-        //        new Product { ProductName = "Mouse", Price = 25, PreferredShipping = ShippingPreference.Standard }
-        //    );
-        //    context.SaveChanges();
-        //}
+        if (!context.Users.Any())
+        {
+            var user = new User
+            {
+                Username = "Kami",
+                Email = "KambizAbdali@Gmail.com",
+                Home = new Address { Street = "123 Main St", City = "Kermanshah", PostalCode = "12345", Country = "Iran" },
+                WorkPlace = new Address { Street = "456 Office Rd", City = "Tehran", PostalCode = "67890", Country = "Iran" }
+            };
+            context.Users.Add(user);
+            context.Users.ToList();
+            context.SaveChanges();
+        }
     }
     catch (Exception ex)
     {

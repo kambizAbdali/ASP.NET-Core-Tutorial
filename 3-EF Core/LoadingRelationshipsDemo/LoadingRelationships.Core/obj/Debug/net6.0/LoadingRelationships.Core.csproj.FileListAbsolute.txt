@@ -1,0 +1,11 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\bin\Debug\net6.0\LoadingRelationships.Core.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\bin\Debug\net6.0\LoadingRelationships.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\bin\Debug\net6.0\ref\LoadingRelationships.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\bin\Debug\net6.0\LoadingRelationships.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\obj\Debug\net6.0\LoadingRelationships.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\obj\Debug\net6.0\LoadingRelationships.Core.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\obj\Debug\net6.0\LoadingRelationships.Core.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\obj\Debug\net6.0\LoadingRelationships.Core.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\obj\Debug\net6.0\LoadingRelationships.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\obj\Debug\net6.0\ref\LoadingRelationships.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Core\obj\Debug\net6.0\LoadingRelationships.Core.pdb

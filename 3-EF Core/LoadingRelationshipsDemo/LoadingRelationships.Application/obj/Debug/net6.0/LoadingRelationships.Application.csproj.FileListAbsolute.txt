@@ -1,0 +1,15 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\bin\Debug\net6.0\LoadingRelationships.Application.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\bin\Debug\net6.0\LoadingRelationships.Application.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\bin\Debug\net6.0\ref\LoadingRelationships.Application.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\bin\Debug\net6.0\LoadingRelationships.Application.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\LoadingRelationships.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\LoadingRelationships.Application.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\LoadingRelationships.Application.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\LoadingRelationships.Application.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\LoadingRelationships.Application.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\ref\LoadingRelationships.Application.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\LoadingRelationships.Application.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\bin\Debug\net6.0\LoadingRelationships.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\bin\Debug\net6.0\LoadingRelationships.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\LoadingRelationships.Application.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Application\obj\Debug\net6.0\LoadingRelationships.Application.csproj.CopyComplete

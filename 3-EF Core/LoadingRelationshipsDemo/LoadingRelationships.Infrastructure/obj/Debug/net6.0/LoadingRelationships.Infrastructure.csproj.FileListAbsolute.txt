@@ -1,0 +1,17 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\bin\Debug\net6.0\LoadingRelationships.Infrastructure.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\bin\Debug\net6.0\LoadingRelationships.Infrastructure.runtimeconfig.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\bin\Debug\net6.0\LoadingRelationships.Infrastructure.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\bin\Debug\net6.0\ref\LoadingRelationships.Infrastructure.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\bin\Debug\net6.0\LoadingRelationships.Infrastructure.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\bin\Debug\net6.0\LoadingRelationships.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\bin\Debug\net6.0\LoadingRelationships.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.csproj.CopyComplete
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\ref\LoadingRelationships.Infrastructure.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationships.Infrastructure\obj\Debug\net6.0\LoadingRelationships.Infrastructure.genruntimeconfig.cache

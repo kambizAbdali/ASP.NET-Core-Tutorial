@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "LoadingRelationships.Application/1.0.0": {
+        "dependencies": {
+          "LoadingRelationships.Core": "1.0.0"
+        },
+        "runtime": {
+          "LoadingRelationships.Application.dll": {}
+        }
+      },
+      "LoadingRelationships.Core/1.0.0": {
+        "runtime": {
+          "LoadingRelationships.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LoadingRelationships.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LoadingRelationships.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
