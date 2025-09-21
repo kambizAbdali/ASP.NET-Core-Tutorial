@@ -1,0 +1,14 @@
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ConcurrencyExample.Core.csproj.AssemblyReference.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ConcurrencyExample.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ConcurrencyExample.Core.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ConcurrencyExample.Core.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ConcurrencyExample.Core.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\bin\Debug\net6.0\ConcurrencyExample.Core.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\bin\Debug\net6.0\ConcurrencyExample.Core.runtimeconfig.json
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\bin\Debug\net6.0\ConcurrencyExample.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\bin\Debug\net6.0\ref\ConcurrencyExample.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\bin\Debug\net6.0\ConcurrencyExample.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ConcurrencyExample.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ref\ConcurrencyExample.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ConcurrencyExample.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\ConcurrencyExample\ConcurrencyExample.Core\obj\Debug\net6.0\ConcurrencyExample.Core.genruntimeconfig.cache

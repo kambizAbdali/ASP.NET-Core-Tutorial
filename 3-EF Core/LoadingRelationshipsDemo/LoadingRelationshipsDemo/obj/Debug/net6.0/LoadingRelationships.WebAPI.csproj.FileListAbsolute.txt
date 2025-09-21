@@ -61,3 +61,4 @@ D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelation
 D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationshipsDemo\bin\Debug\net6.0\LoadingRelationships.Application.pdb
 D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationshipsDemo\bin\Debug\net6.0\LoadingRelationships.Infrastructure.pdb
 D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationshipsDemo\bin\Debug\net6.0\LoadingRelationships.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\3-EF Core\LoadingRelationshipsDemo\LoadingRelationshipsDemo\obj\Debug\net6.0\LoadingRelationships.WebAPI.MvcApplicationPartsAssemblyInfo.cs

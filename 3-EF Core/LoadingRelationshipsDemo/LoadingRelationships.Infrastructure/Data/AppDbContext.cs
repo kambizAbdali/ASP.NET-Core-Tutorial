@@ -15,10 +15,14 @@ namespace LoadingRelationships.Infrastructure.Data
             // Lazy Loading:  Requires installing Microsoft.EntityFrameworkCore.Proxies
             // Enable lazy loading
             //   this.ChangeTracker.LazyLoadingEnabled = true; // Enabled by default
+
+
+            //ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; // Global NoTracking 
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +30,15 @@ namespace LoadingRelationships.Infrastructure.Data
             modelBuilder.Entity<User>().OwnsOne(o => o.WorkPlace);
             modelBuilder.Entity<User>().OwnsOne(o => o.Home);
 
+
+            // حذف منطقی به صورت سراسری
+            modelBuilder.Entity<Product>().HasQueryFilter(p => !p.IsRemoved);
+
+            // Seed Data
+            modelBuilder.Entity<Product>().HasData(
+                new Product { Id = 1, Name = "Laptop", Price = 1500, IsRemoved = false },
+                new Product { Id = 2, Name = "Keyboard", Price = 100, IsRemoved = false }
+            );
 
             // Seed User
             //modelBuilder.Entity<User>().HasData(
