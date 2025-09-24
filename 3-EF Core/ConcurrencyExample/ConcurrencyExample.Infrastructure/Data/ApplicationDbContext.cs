@@ -15,6 +15,8 @@ namespace ConcurrencyExample.Infrastructure.Data
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Tags> Tags { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

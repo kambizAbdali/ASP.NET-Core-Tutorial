@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DapperSample.Core.Entities.Product>
+
+@{
+    ViewData["Title"] = "Products With Tags";
+}
+
+<h1>Products With Tags</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                Tags
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @if (item.Tags != null)
+                    {
+                        @foreach (var tag in item.Tags)
+                        {
+                            <span>@tag.Name </span>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

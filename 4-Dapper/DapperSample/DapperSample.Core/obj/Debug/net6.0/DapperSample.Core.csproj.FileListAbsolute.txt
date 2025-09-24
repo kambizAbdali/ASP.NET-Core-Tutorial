@@ -1,0 +1,12 @@
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\bin\Debug\net6.0\DapperSample.Core.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\bin\Debug\net6.0\DapperSample.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\bin\Debug\net6.0\DapperSample.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\obj\Debug\net6.0\DapperSample.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\obj\Debug\net6.0\DapperSample.Core.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\obj\Debug\net6.0\DapperSample.Core.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\obj\Debug\net6.0\DapperSample.Core.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\obj\Debug\net6.0\DapperSample.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\obj\Debug\net6.0\ref\DapperSample.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\obj\Debug\net6.0\DapperSample.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\bin\Debug\net6.0\ref\DapperSample.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Core\obj\Debug\net6.0\DapperSample.Core.csproj.AssemblyReference.cache
