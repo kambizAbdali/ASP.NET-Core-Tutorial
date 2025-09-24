@@ -53,9 +53,9 @@ namespace DapperSample.Application.Services
             return await _productRepository.GetProductWithCategoryAsync(productId);
         }
 
-        public async Task CallStoredProcedureAsync(int productId)
+        public async Task UpdateProductPriceStoredProcedureAsync(int productId)
         {
-            await _productRepository.CallStoredProcedureAsync(productId);
+            await _productRepository.UpdateProductPriceStoredProcedureAsync(productId);
         }
     }
 }

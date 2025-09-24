@@ -114,7 +114,7 @@ namespace DapperSample.Infrastructure.Repositories
 
             return products.FirstOrDefault(); // changed to FirstOrDefault()
         }
-        public async Task CallStoredProcedureAsync(int productId)
+        public async Task UpdateProductPriceStoredProcedureAsync(int productId)
         {
             using var connection = _dbConnectionFactory.CreateConnection();
             var parameters = new { ProductId = productId };

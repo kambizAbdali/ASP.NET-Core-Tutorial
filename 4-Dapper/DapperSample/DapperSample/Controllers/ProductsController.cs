@@ -55,7 +55,7 @@ namespace DapperSample.Web.Controllers
 
         public async Task<IActionResult> CallStoredProcedure(int id)
         {
-            await _productService.CallStoredProcedureAsync(id);
+            await _productService.UpdateProductPriceStoredProcedureAsync(id);
             return RedirectToAction(nameof(Index));
         }
 

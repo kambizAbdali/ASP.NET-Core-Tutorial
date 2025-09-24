@@ -20,6 +20,6 @@ namespace DapperSample.Core.Interfaces
         Task<IEnumerable<Product>> GetProductsWithTagsAsync(); // N:N
         Task<Product> GetProductWithCategoryAsync(int productId); // 1:N
 
-        Task CallStoredProcedureAsync(int productId);
+        Task UpdateProductPriceStoredProcedureAsync(int productId);
     }
 }
