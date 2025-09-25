@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DapperSample.Application\DapperSample.Application.csproj" />
-    <ProjectReference Include="..\DapperSample.Infrastructure\DapperSample.Infrastructure.csproj" />
   
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
 		  <PrivateAssets>all</PrivateAssets>

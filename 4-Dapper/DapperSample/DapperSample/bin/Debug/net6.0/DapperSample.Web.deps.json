@@ -9,7 +9,6 @@
       "DapperSample.Web/1.0.0": {
         "dependencies": {
           "DapperSample.Application": "1.0.0",
-          "DapperSample.Infrastructure": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "6.0.0"
         },
         "runtime": {
@@ -972,7 +971,7 @@
       },
       "DapperSample.Application/1.0.0": {
         "dependencies": {
-          "DapperSample.Core": "1.0.0"
+          "DapperSample.Infrastructure": "1.0.0"
         },
         "runtime": {
           "DapperSample.Application.dll": {}

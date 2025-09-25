@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yaPVx1+qT2tRnXQsvpJ35OMPfwQqdlhBXagaieKat1CSt35CCMoyA/5tpdMlF1WKw62O1EB+NqUobAA2jxYevQ==",
+  "dgSpecHash": "Vmvn+5x/a2sUnrbKSWZIBD9WmLrSlrqj07XzmPpl+0Evxk1Qt621hxT5EXmWDzERjmvFNO0jtbEM9VbSCwzJNw==",
   "success": true,
   "projectFilePath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample\\DapperSample.Web.csproj",
   "expectedPackageFiles": [

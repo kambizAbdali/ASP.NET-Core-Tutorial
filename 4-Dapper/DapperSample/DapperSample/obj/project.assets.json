@@ -1236,7 +1236,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DapperSample.Core": "1.0.0"
+          "DapperSample.Infrastructure": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DapperSample.Application.dll": {}
@@ -3896,7 +3896,6 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "DapperSample.Application >= 1.0.0",
-      "DapperSample.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0"
     ]
   },
@@ -3934,9 +3933,6 @@
           "projectReferences": {
             "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Application\\DapperSample.Application.csproj": {
               "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Application\\DapperSample.Application.csproj"
-            },
-            "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj": {
-              "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj"
             }
           }
         }

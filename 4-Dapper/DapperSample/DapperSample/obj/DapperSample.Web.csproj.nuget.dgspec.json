@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Core\\DapperSample.Core.csproj": {
-                "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Core\\DapperSample.Core.csproj"
+              "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj": {
+                "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj"
               }
             }
           }
@@ -241,9 +241,6 @@
             "projectReferences": {
               "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Application\\DapperSample.Application.csproj": {
                 "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Application\\DapperSample.Application.csproj"
-              },
-              "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj": {
-                "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj"
               }
             }
           }
