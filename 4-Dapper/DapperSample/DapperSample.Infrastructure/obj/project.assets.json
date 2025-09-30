@@ -1115,6 +1115,19 @@
           }
         }
       },
+      "DapperSample.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DapperSample.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DapperSample.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DapperSample.Application.dll": {}
+        }
+      },
       "DapperSample.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3581,6 +3594,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "DapperSample.Application/1.0.0": {
+      "type": "project",
+      "path": "../DapperSample.Application/DapperSample.Application.csproj",
+      "msbuildProject": "../DapperSample.Application/DapperSample.Application.csproj"
+    },
     "DapperSample.Core/1.0.0": {
       "type": "project",
       "path": "../DapperSample.Core/DapperSample.Core.csproj",
@@ -3590,7 +3608,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Dapper >= 2.0.4",
-      "DapperSample.Core >= 1.0.0",
+      "DapperSample.Application >= 1.0.0",
       "FluentMigrator >= 6.0.0",
       "FluentMigrator.Runner >= 6.0.0",
       "FluentMigrator.Runner.SqlServer >= 6.0.0",
@@ -3629,8 +3647,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Core\\DapperSample.Core.csproj": {
-              "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Core\\DapperSample.Core.csproj"
+            "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Application\\DapperSample.Application.csproj": {
+              "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Application\\DapperSample.Application.csproj"
             }
           }
         }

@@ -13,5 +13,3 @@ D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Application\obj
 D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Application\obj\Debug\net6.0\DapperSample.Application.pdb
 D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Application\bin\Debug\net6.0\ref\DapperSample.Application.dll
 D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Application\obj\Debug\net6.0\DapperSample.Application.csproj.CopyComplete
-D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Application\bin\Debug\net6.0\DapperSample.Infrastructure.dll
-D:\.Net\ASP.NET-Core-Tutorial\4-Dapper\DapperSample\DapperSample.Application\bin\Debug\net6.0\DapperSample.Infrastructure.pdb

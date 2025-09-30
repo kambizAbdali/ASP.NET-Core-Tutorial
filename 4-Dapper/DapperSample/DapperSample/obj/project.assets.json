@@ -1236,7 +1236,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DapperSample.Infrastructure": "1.0.0"
+          "DapperSample.Core": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DapperSample.Application.dll": {}
@@ -1260,7 +1260,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Dapper": "2.0.4",
-          "DapperSample.Core": "1.0.0",
+          "DapperSample.Application": "1.0.0",
           "FluentMigrator": "6.0.0",
           "FluentMigrator.Runner": "6.0.0",
           "FluentMigrator.Runner.SqlServer": "6.0.0",
@@ -3895,7 +3895,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DapperSample.Application >= 1.0.0",
+      "DapperSample.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0"
     ]
   },
@@ -3931,8 +3931,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Application\\DapperSample.Application.csproj": {
-              "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Application\\DapperSample.Application.csproj"
+            "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj": {
+              "projectPath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj"
             }
           }
         }

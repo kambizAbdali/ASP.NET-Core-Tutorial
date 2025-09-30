@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qG0/RoYW4OJAtnNbgqNGQX7RL1HIsM+cwbVXm8ZgSnzjdeOXKVEnM9W2C0S/8YNpXkRJ78W1OQ8vwqlD/zFgcw==",
+  "dgSpecHash": "43RmlTifvFcN4VtPMTyppzPpKMAzMygJUHi6XLDiH75QUBy8TsbbMN8SsIISOcdvpMM/owKedNdkdw6i3at04A==",
   "success": true,
   "projectFilePath": "D:\\.Net\\ASP.NET-Core-Tutorial\\4-Dapper\\DapperSample\\DapperSample.Infrastructure\\DapperSample.Infrastructure.csproj",
   "expectedPackageFiles": [
