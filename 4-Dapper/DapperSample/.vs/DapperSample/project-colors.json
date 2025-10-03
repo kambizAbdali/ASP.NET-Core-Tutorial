@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "62bb3235-cf32-488e-8262-a1ac1be91ea0": {
+      "ProjectGuid": "62bb3235-cf32-488e-8262-a1ac1be91ea0",
+      "DisplayName": "DapperSample.Core",
+      "ColorIndex": 0
+    },
+    "ddc6be57-3510-4a7e-a5ef-1fbcbc8fbab3": {
+      "ProjectGuid": "ddc6be57-3510-4a7e-a5ef-1fbcbc8fbab3",
+      "DisplayName": "DapperSample.Application",
+      "ColorIndex": 1
+    },
+    "e84d34f9-6c7b-4f89-852a-812a15bee0d8": {
+      "ProjectGuid": "e84d34f9-6c7b-4f89-852a-812a15bee0d8",
+      "DisplayName": "DapperSample.Infrastructure",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "74510066-6d00-438e-90c6-1d5389e8b34f": {
+      "ProjectGuid": "74510066-6d00-438e-90c6-1d5389e8b34f",
+      "DisplayName": "DapperSample.Web",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

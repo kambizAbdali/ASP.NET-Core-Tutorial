@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AdvancedRoutingDemo.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<h1>Blog Posts</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        @foreach (var post in Model)
+        {
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">@post.Title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        Published: @post.PublishedDate.ToString("MMMM dd, yyyy") | Author: @post.Author
+                    </h6>
+                    <p class="card-text">@post.Content.Substring(0, Math.Min(200, post.Content.Length))...</p>
+                    <a href="@Url.Action("Details", "Blog", new { 
+                        year = post.PublishedDate.Year, 
+                        month = post.PublishedDate.Month, 
+                        title = post.Title.ToLower().Replace(" ", "-") 
+                    })" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        }
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                No blog posts found.
+            </div>
+        }
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Blog Routes</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Archive", "Blog", new { year = 2024 })">2024 Archive</a></li>
+                    <li><a href="@Url.Action("ByTag", "Blog", new { tagName = "routing" })">Routing Tag</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

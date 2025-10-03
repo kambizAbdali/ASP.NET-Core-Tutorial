@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AdvancedRoutingDemo</name>
+    </assembly>
+    <members>
+        <member name="T:AdvancedRoutingDemo.Controllers.Api.ProductsApiController">
+            <summary>
+            Products API Controller with comprehensive routing examples
+            </summary>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.ProductsApiController.GetProducts">
+            <summary>
+            Get all products
+            </summary>
+            <returns>List of products</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.ProductsApiController.GetProduct(System.Int32)">
+            <summary>
+            Get a specific product by ID
+            </summary>
+            <param name="id">Product ID</param>
+            <returns>Product details</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.ProductsApiController.GetProductsByCategory(System.String)">
+            <summary>
+            Get products by category
+            </summary>
+            <param name="category">Product category</param>
+            <returns>Filtered products</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.ProductsApiController.CreateProduct(AdvancedRoutingDemo.Models.Product)">
+            <summary>
+            Create a new product
+            </summary>
+            <param name="product">Product data</param>
+            <returns>Created product</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.ProductsApiController.UpdateProduct(System.Int32,AdvancedRoutingDemo.Models.Product)">
+            <summary>
+            Update an existing product
+            </summary>
+            <param name="id">Product ID</param>
+            <param name="product">Updated product data</param>
+            <returns>No content</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.ProductsApiController.DeleteProduct(System.Int32)">
+            <summary>
+            Delete a product
+            </summary>
+            <param name="id">Product ID</param>
+            <returns>No content</returns>
+        </member>
+        <member name="T:AdvancedRoutingDemo.Controllers.Api.UsersController">
+            <summary>
+            Users API Controller demonstrating advanced routing techniques
+            </summary>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.UsersController.GetUsers">
+            <summary>
+            Get all users
+            </summary>
+            <returns>List of users</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.UsersController.GetUser(System.Int32)">
+            <summary>
+            Get user by ID
+            </summary>
+            <param name="id">User ID</param>
+            <returns>User details</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.UsersController.GetUserByEmail(System.String)">
+            <summary>
+            Get user by email
+            </summary>
+            <param name="email">User email</param>
+            <returns>User details</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.UsersController.CreateUser(AdvancedRoutingDemo.Models.User)">
+            <summary>
+            Create a new user
+            </summary>
+            <param name="user">User data</param>
+            <returns>Created user</returns>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.UsersController.UpdateUserProfile(System.Int32,AdvancedRoutingDemo.Models.User)">
+            <summary>
+            Update user profile
+            </summary>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.UsersController.PatchUserProfile(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{AdvancedRoutingDemo.Models.User})">
+            <summary>
+            Partial update user profile
+            </summary>
+        </member>
+        <member name="M:AdvancedRoutingDemo.Controllers.Api.UsersController.DeleteUser(System.Int32)">
+            <summary>
+            Delete user
+            </summary>
+        </member>
+    </members>
+</doc>

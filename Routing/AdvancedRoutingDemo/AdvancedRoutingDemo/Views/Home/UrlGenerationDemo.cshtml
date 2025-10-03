@@ -1,0 +1,51 @@
+﻿@model Dictionary<string, string>
+
+@{
+    ViewData["Title"] = "URL Generation Demo";
+}
+
+<h1>URL Generation Examples</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Generated URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        <td><code>@item.Value</code></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>URL Helper Methods</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><code>Url.Action()</code></li>
+                    <li><code>Url.RouteUrl()</code></li>
+                    <li><code>Url.Content()</code></li>
+                    <li><code>Url.Link()</code></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Tag Helper Examples</h3>
+<div class="mb-3">
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Home (Tag Helper)</a>
+    <a asp-route="FeaturedProducts" class="btn btn-secondary">Featured Products</a>
+    <a asp-action="Details" asp-controller="Product" asp-route-id="5" class="btn btn-success">Product Details</a>
+</div>

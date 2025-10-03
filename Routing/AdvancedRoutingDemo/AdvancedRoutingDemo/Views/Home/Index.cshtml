@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Advanced Routing Demo</h1>
+    <p class="lead">A comprehensive demonstration of ASP.NET Core Routing features</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Conventional Routing</h5>
+                <p class="card-text">Traditional route definitions in Startup/Program.cs</p>
+                <a href="@Url.Action("List", "Product")" class="btn btn-primary">View Products</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Attribute Routing</h5>
+                <p class="card-text">Routes defined directly on controllers and actions</p>
+                <a href="@Url.RouteUrl("FeaturedProducts")" class="btn btn-primary">Featured Products</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">SEO-Friendly URLs</h5>
+                <p class="card-text">Clean, readable URLs for better search engine optimization</p>
+                <a href="~/catalog/electronics/laptop" class="btn btn-primary">SEO Example</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Routing Examples</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><a href="@Url.Action("UrlGenerationDemo", "Home")">URL Generation Demo</a></li>
+                    <li><a href="@Url.Action("TestRouteInfo", "Home")">Route Info Test</a></li>
+                    <li><a href="@Url.Action("Search", "Home", new { category = "electronics", keyword = "laptop" })">Search Example</a></li>
+                    <li><a href="~/blog/2024/1/introduction-to-asp-net-core-routing">Blog Post Example</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>API Endpoints</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><a href="/api/users">Users API</a></li>
+                    <li><a href="/api/productsapi">Products API</a></li>
+                    <li><a href="/api/test">Test API</a></li>
+                    <li><a href="/api-docs">Swagger UI</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

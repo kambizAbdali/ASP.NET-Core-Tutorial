@@ -1,0 +1,34 @@
+﻿@model AdvancedRoutingDemo.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1>Product Details</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">@Model.Name</h3>
+                <h6 class="card-subtitle mb-2 text-muted">@Model.Category</h6>
+                <p class="card-text">@Model.Description</p>
+                <p class="h4 text-primary"><strong>$@Model.Price</strong></p>
+                
+                <div class="mt-4">
+                    <h6>Available Routes:</h6>
+                    <ul>
+                        <li><a href="@Url.Action("Details", "Product", new { id = Model.Id })">Standard Route</a></li>
+                        <li><a href="@Url.Action("SeoDetails", "Product", new { category = Model.Category.ToLower(), productName = Model.Name.ToLower().Replace(" ", "-") })">SEO Route</a></li>
+                        <li><a href="/product/@Model.Id">Short Route</a></li>
+                        <li><a href="/products/details/@Model.Id">Long Route</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="@Url.Action("List", "Product")" class="btn btn-secondary">Back to List</a>
+                <a href="@Url.Action("Edit", "Product", new { id = Model.Id })" class="btn btn-warning">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>

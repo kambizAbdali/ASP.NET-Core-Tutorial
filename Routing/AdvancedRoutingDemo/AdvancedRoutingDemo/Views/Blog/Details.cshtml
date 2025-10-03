@@ -1,0 +1,26 @@
+﻿@model AdvancedRoutingDemo.Models.BlogPost
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h1>@Model.Title</h1>
+
+<div class="text-muted mb-3">
+    <small>Published on: @Model.PublishedDate.ToString("MMMM dd, yyyy")</small> | 
+    <small>Author: @Model.Author</small>
+</div>
+
+<div class="blog-content">
+    <p>@Model.Content</p>
+</div>
+
+<div class="mt-4">
+    <h6>Route Information:</h6>
+    <p>This page uses the route: <code>blog/{year}/{month}/{title}</code></p>
+    <p>Current URL: <code>@Context.Request.Path</code></p>
+</div>
+
+<div class="mt-3">
+    <a href="@Url.Action("Index", "Blog")" class="btn btn-secondary">Back to Blog</a>
+</div>
