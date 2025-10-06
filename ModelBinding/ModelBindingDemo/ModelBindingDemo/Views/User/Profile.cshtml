@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "User Profile";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2>User Profile</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewBag.ActiveTab == "info" ? "active" : "")" 
+                                   href="@Url.Action("Profile", new { id = ViewBag.UserId, tab = "info" })">Profile Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewBag.ActiveTab == "settings" ? "active" : "")" 
+                                   href="@Url.Action("Profile", new { id = ViewBag.UserId, tab = "settings" })">Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewBag.ActiveTab == "security" ? "active" : "")" 
+                                   href="@Url.Action("Profile", new { id = ViewBag.UserId, tab = "security" })">Security</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-9">
+                        @if (ViewBag.ActiveTab == "info")
+                        {
+                            <h4>Profile Information</h4>
+                            @if (ViewBag.User != null)
+                            {
+                                <dl class="row">
+                                    <dt class="col-sm-3">User ID:</dt>
+                                    <dd class="col-sm-9">@ViewBag.User.Id</dd>
+                                    
+                                    <dt class="col-sm-3">Username:</dt>
+                                    <dd class="col-sm-9">@ViewBag.User.Username</dd>
+                                    
+                                    <dt class="col-sm-3">Email:</dt>
+                                    <dd class="col-sm-9">@ViewBag.User.Email</dd>
+                                    
+                                    <dt class="col-sm-3">Created:</dt>
+                                    <dd class="col-sm-9">@ViewBag.User.CreatedAt.ToString("MMM dd, yyyy")</dd>
+                                    
+                                    <dt class="col-sm-3">Status:</dt>
+                                    <dd class="col-sm-9">
+                                        @if (ViewBag.User.IsActive)
+                                        {
+                                            <span class="badge bg-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">Inactive</span>
+                                        }
+                                    </dd>
+                                </dl>
+                            }
+                            else
+                            {
+                                <p class="text-muted">User information not available.</p>
+                            }
+                        }
+                        else if (ViewBag.ActiveTab == "settings")
+                        {
+                            <h4>User Settings</h4>
+                            <p class="text-muted">Settings functionality would go here.</p>
+                        }
+                        else if (ViewBag.ActiveTab == "security")
+                        {
+                            <h4>Security Settings</h4>
+                            <p class="text-muted">Security settings functionality would go here.</p>
+                        }
+                        
+                        <div class="mt-4">
+                            <p class="text-muted">
+                                This demonstrates Route Data binding with parameters: 
+                                User ID: <strong>@ViewBag.UserId</strong>, 
+                                Active Tab: <strong>@ViewBag.ActiveTab</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

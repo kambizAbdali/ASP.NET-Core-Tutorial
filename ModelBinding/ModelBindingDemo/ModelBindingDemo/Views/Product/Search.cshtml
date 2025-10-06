@@ -1,0 +1,139 @@
+﻿@model ModelBindingDemo.Models.DTOs.ProductSearchDto
+
+@{
+    ViewData["Title"] = "Product Search";
+}
+
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h2>Product Search</h2>
+        <hr />
+        
+        <form asp-action="Search" method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Keyword" class="control-label"></label>
+                        <input asp-for="Keyword" class="form-control" />
+                        <span asp-validation-for="Keyword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="Category" class="control-label"></label>
+                        <input asp-for="Category" class="form-control" />
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="MinPrice" class="control-label"></label>
+                        <input asp-for="MinPrice" class="form-control" />
+                        <span asp-validation-for="MinPrice" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="MaxPrice" class="control-label"></label>
+                        <input asp-for="MaxPrice" class="form-control" />
+                        <span asp-validation-for="MaxPrice" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="Page" class="control-label"></label>
+                        <input asp-for="Page" class="form-control" />
+                        <span asp-validation-for="Page" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="PageSize" class="control-label"></label>
+                        <input asp-for="PageSize" class="form-control" />
+                        <span asp-validation-for="PageSize" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">View All Products</a>
+                <a href="@Url.Action("Create", "Product")" class="btn btn-success">Add New Product</a>
+            </div>
+        </form>
+        
+        @if (ViewBag.SearchResults != null)
+        {
+            <div class="mt-4">
+                <h4>Search Results</h4>
+                
+                @if (ViewBag.SearchResults.Count > 0)
+                {
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>In Stock</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in ViewBag.SearchResults)
+                            {
+                                <tr>
+                                    <td>@product.Id</td>
+                                    <td>@product.Name</td>
+                                    <td>$@product.Price</td>
+                                    <td>@product.Category</td>
+                                    <td>
+                                        @if (product.InStock)
+                                        {
+                                            <span class="badge bg-success">Yes</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">No</span>
+                                        }
+                                    </td>
+                                    <td>@product.CreatedAt.ToString("MMM dd, yyyy")</td>
+                                    <td>
+                                        <a href="@Url.Action("Details", new { id = product.Id })" class="btn btn-sm btn-info">View</a>
+                                        <a href="@Url.Action("Edit", new { id = product.Id })" class="btn btn-sm btn-warning">Edit</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        No products found matching your search criteria.
+                    </div>
+                }
+                
+                @if (ViewBag.Search != null)
+                {
+                    <p class="text-muted">
+                        Search criteria: 
+                        Keyword: <strong>@ViewBag.Search.Keyword</strong>, 
+                        Category: <strong>@ViewBag.Search.Category</strong>,
+                        Min Price: <strong>@ViewBag.Search.MinPrice</strong>,
+                        Max Price: <strong>@ViewBag.Search.MaxPrice</strong>
+                    </p>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

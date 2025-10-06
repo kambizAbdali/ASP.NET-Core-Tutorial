@@ -1,0 +1,75 @@
+﻿@model ModelBindingDemo.Models.Entities.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2>Product Details</h2>
+            </div>
+            <div class="card-body">
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Success"]
+                    </div>
+                }
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Product Information</h4>
+                        <dl class="row">
+                            <dt class="col-sm-4">ID:</dt>
+                            <dd class="col-sm-8">@Model.Id</dd>
+
+                            <dt class="col-sm-4">Name:</dt>
+                            <dd class="col-sm-8">@Model.Name</dd>
+
+                            <dt class="col-sm-4">Price:</dt>
+                            <dd class="col-sm-8">$@Model.Price</dd>
+
+                            <dt class="col-sm-4">Category:</dt>
+                            <dd class="col-sm-8">@Model.Category</dd>
+
+                            <dt class="col-sm-4">In Stock:</dt>
+                            <dd class="col-sm-8">
+                                @if (Model.InStock)
+                                {
+                                    <span class="badge bg-success">Yes</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">No</span>
+                                }
+                            </dd>
+
+                            <dt class="col-sm-4">Created At:</dt>
+                            <dd class="col-sm-8">@Model.CreatedAt.ToString("MMM dd, yyyy")</dd>
+                        </dl>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h4>Description</h4>
+                        @if (!string.IsNullOrEmpty(Model.Description))
+                        {
+                            <p>@Model.Description</p>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No description available.</p>
+                        }
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning">Edit Product</a>
+                    <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Back to Products</a>
+                    <a href="@Url.Action("Create", "Product")" class="btn btn-success">Create New Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

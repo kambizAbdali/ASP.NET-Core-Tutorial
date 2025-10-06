@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Model Binding in ASP.NET Core";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Model Binding Demo Project</h1>
+    
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Person Form</h5>
+                    <p class="card-text">Model Binding with nested classes and lists</p>
+                    <a href="@Url.Action("PersonForm")" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order Form</h5>
+                    <p class="card-text">Using Prefix in Model Binding</p>
+                    <a href="@Url.Action("OrderForm")" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">API Test</h5>
+                    <p class="card-text">Test API with different formats JSON/XML</p>
+                    <a href="/api/api/search" class="btn btn-primary">View API</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">User management with specific DTOs</p>
+                    <a href="@Url.Action("Register", "User")" class="btn btn-success">Register</a>
+                    <a href="@Url.Action("ChangePassword", "User")" class="btn btn-warning">Change Password</a>
+                    <a href="@Url.Action("Index", "User")" class="btn btn-info">All Users</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Products</h5>
+                    <p class="card-text">Search and manage products</p>
+                    <a href="@Url.Action("Search", "Product")" class="btn btn-info">Search</a>
+                    <a href="@Url.Action("Create", "Product")" class="btn btn-success">Create Product</a>
+                    <a href="@Url.Action("Index", "Product")" class="btn btn-primary">All Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

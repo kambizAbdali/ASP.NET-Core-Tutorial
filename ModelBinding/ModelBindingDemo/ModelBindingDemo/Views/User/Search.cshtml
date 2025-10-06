@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "User Search";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2>User Search</h2>
+        <hr />
+        
+        <form method="get" asp-action="Search">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="term" class="control-label">Search Term</label>
+                        <input type="text" name="term" class="form-control" value="@ViewBag.Term" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="page" class="control-label">Page</label>
+                        <input type="number" name="page" class="form-control" value="@ViewBag.Page" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <a href="@Url.Action("Index", "User")" class="btn btn-secondary">View All Users</a>
+            </div>
+        </form>
+        
+        @if (ViewBag.Term != null)
+        {
+            <div class="mt-4">
+                <h4>Search Results</h4>
+                <p>Searching for: <strong>@ViewBag.Term</strong> | Page: <strong>@ViewBag.Page</strong></p>
+                <p class="text-muted">This is a demonstration of Query String binding.</p>
+            </div>
+        }
+    </div>
+</div>
