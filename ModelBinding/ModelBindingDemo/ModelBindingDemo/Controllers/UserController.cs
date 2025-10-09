@@ -127,7 +127,7 @@ namespace ModelBindingDemo.Controllers
             return View();
         }
 
-        [HttpGet("/user/profile/{id}/{tab}")]
+        [HttpGet]
         public IActionResult Profile(int id, string tab = "info")
         {
             var user = _context.Users.Find(id);
@@ -135,7 +135,6 @@ namespace ModelBindingDemo.Controllers
             {
                 return NotFound();
             }
-
             ViewBag.UserId = id;
             ViewBag.ActiveTab = tab;
             ViewBag.User = user;

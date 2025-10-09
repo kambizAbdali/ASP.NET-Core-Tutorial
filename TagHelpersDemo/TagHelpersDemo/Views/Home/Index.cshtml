@@ -1,0 +1,124 @@
+﻿@model List<TagHelpersDemo.Models.Product>
+@{
+    ViewData["Title"] = "Home Page - Tag Helpers Demo";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h1>Tag Helpers Demonstration</h1>
+        <p class="lead">This page demonstrates various ASP.NET Core Tag Helpers in action.</p>
+        
+        <environment include="Development">
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> Running in Development environment
+            </div>
+        </environment>
+        
+        <cache expires-after="@TimeSpan.FromMinutes(5)" vary-by-query="page">
+            <div class="alert alert-warning">
+                <i class="fas fa-clock"></i> This content is cached for 5 minutes. Current time: @DateTime.Now.ToString("HH:mm:ss")
+            </div>
+        </cache>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-8">
+        <h2>Products List</h2>
+        
+        <div class="mb-3">
+            <a asp-controller="Home" asp-action="Create" class="btn btn-success">
+                <i class="fas fa-plus"></i> Create New Product
+            </a>
+        </div>
+
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Price.ToString("C")</td>
+                                <td>@product.Category?.Name</td>
+                                <td>
+                                    <span class="badge bg-@(product.Status == ProductStatus.Available ? "success" : 
+                                                          product.Status == ProductStatus.OutOfStock ? "danger" : 
+                                                          product.Status == ProductStatus.Discontinued ? "secondary" : "info")">
+                                        @product.Status
+                                    </span>
+                                </td>
+                                <td>@product.StockQuantity</td>
+                                <td>
+                                    <a asp-controller="Home" asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-info">
+                                        <i class="fas fa-eye"></i> Details
+                                    </a>
+                                    <a asp-controller="Home" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                    <form asp-controller="Home" asp-action="Delete" method="post" class="d-inline">
+                                        <input type="hidden" name="id" value="@product.Id" />
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                No products found. <a asp-action="Create">Create the first product</a>.
+            </div>
+        }
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Tag Helpers Used</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success"></i> Anchor Tag Helpers</li>
+                    <li><i class="fas fa-check text-success"></i> Environment Tag Helper</li>
+                    <li><i class="fas fa-check text-success"></i> Cache Tag Helper</li>
+                    <li><i class="fas fa-check text-success"></i> Custom Tag Helpers</li>
+                    <li><i class="fas fa-check text-success"></i> Partial Tag Helper</li>
+                    <li><i class="fas fa-check text-success"></i> Form Tag Helper</li>
+                </ul>
+            </div>
+        </div>
+        
+        <distributed-cache name="sidebar-info" expires-after="@TimeSpan.FromMinutes(10)">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Sidebar Info (Cached)</h5>
+                </div>
+                <div class="card-body">
+                    <p>This sidebar content is cached using Distributed Cache Tag Helper.</p>
+                    <p><small>Generated at: @DateTime.Now.ToString("HH:mm:ss")</small></p>
+                    <p><small>Total Products: @Model.Count</small></p>
+                </div>
+            </div>
+        </distributed-cache>
+    </div>
+</div>

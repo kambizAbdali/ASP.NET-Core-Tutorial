@@ -1,0 +1,109 @@
+﻿@model TagHelpersDemo.Models.ProductViewModel
+@{
+    ViewData["Title"] = "Advanced Form Demo";
+}
+
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h2>Advanced Form Demonstrations</h2>
+        <p class="text-muted">Showing advanced Tag Helper features including SelectList groups and multiple selects.</p>
+        
+        <form asp-controller="Home" asp-action="AdvancedForm" method="post">
+            @Html.AntiForgeryToken()
+            
+            <div class="card">
+                <div class="card-header">
+                    <h5>SelectList Demonstrations</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="CategoryId" class="form-label"></label>
+                                <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control">
+                                    <option value="">-- Select Category --</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Grouped Categories</label>
+                                <select class="form-control" asp-items="ViewBag.GroupedCategories">
+                                    <option value="">-- Select Category --</option>
+                                </select>
+                                <small class="form-text text-muted">Categories grouped by type using SelectListGroup</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="SelectedCategories" class="form-label">Multiple Categories</label>
+                                <select asp-for="SelectedCategories" asp-items="ViewBag.AllCategories" 
+                                        class="form-control" multiple size="4">
+                                </select>
+                                <small class="form-text text-muted">Hold Ctrl to select multiple categories</small>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Enum-based SelectList</label>
+                                <select class="form-control" asp-items="ViewBag.StatusList">
+                                    <option value="">-- Select Status --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <h6>Form Actions with Different Tag Helpers</h6>
+                            <div class="btn-group" role="group">
+                                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary">
+                                    Home (Controller/Action)
+                                </a>
+                                <button type="submit" bs-button-color="success" bs-button-icon="fas fa-check">
+                                    Submit Form
+                                </button>
+                                <email address="help" domain="support.com" class="btn btn-outline-info">
+                                    <i class="fas fa-envelope"></i> Get Help
+                                </email>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Anchor Tag Helper Variations</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex gap-2 flex-wrap">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">
+                        Basic Anchor
+                    </a>
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="1" class="btn btn-outline-secondary">
+                        With Route Parameters
+                    </a>
+                    @{
+                        var routeData = new Dictionary<string, string>
+                        {
+                            { "id", "2" },
+                            { "name", "Test Product" },
+                            { "category", "electronics" }
+                        };
+                    }
+                    <a asp-controller="Home" asp-action="Details" asp-all-route-data="routeData" class="btn btn-outline-secondary">
+                        With All Route Data
+                    </a>
+                    <a asp-controller="Home" asp-action="Index" asp-fragment="features" class="btn btn-outline-secondary">
+                        With Fragment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

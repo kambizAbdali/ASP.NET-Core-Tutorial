@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Cache Demonstration";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h2>Cache Tag Helpers Demonstration</h2>
+        <p class="lead">Showing different caching strategies and configurations.</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Memory Cache</h5>
+            </div>
+            <div class="card-body">
+                <cache expires-after="@TimeSpan.FromMinutes(5)">
+                    <div class="alert alert-info">
+                        <h6>5-Minute Cache</h6>
+                        <p>This content caches for 5 minutes.</p>
+                        <small>Generated: @DateTime.Now.ToString("HH:mm:ss")</small>
+                    </div>
+                </cache>
+                
+                <cache expires-sliding="@TimeSpan.FromMinutes(2)">
+                    <div class="alert alert-warning">
+                        <h6>Sliding Expiration (2 minutes)</h6>
+                        <p>This cache expires if not accessed for 2 minutes.</p>
+                        <small>Generated: @DateTime.Now.ToString("HH:mm:ss")</small>
+                    </div>
+                </cache>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Vary-by Cache</h5>
+            </div>
+            <div class="card-body">
+                <cache vary-by-query="category,page" expires-after="@TimeSpan.FromMinutes(10)">
+                    <div class="alert alert-success">
+                        <h6>Vary by Query String</h6>
+                        <p>This cache varies by 'category' and 'page' query parameters.</p>
+                        <small>Generated: @DateTime.Now.ToString("HH:mm:ss")</small>
+                    </div>
+                </cache>
+                
+                <cache vary-by-header="User-Agent" expires-after="@TimeSpan.FromMinutes(15)">
+                    <div class="alert alert-primary">
+                        <h6>Vary by User-Agent</h6>
+                        <p>Different cache for different browsers.</p>
+                        <small>Generated: @DateTime.Now.ToString("HH:mm:ss")</small>
+                    </div>
+                </cache>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Distributed Cache</h5>
+            </div>
+            <div class="card-body">
+                <distributed-cache name="demo-content" expires-after="@TimeSpan.FromMinutes(20)">
+                    <div class="alert alert-secondary">
+                        <h6>Distributed Cache (20 minutes)</h6>
+                        <p>This uses distributed cache and works in web farm scenarios.</p>
+                        <p><strong>Cache Name:</strong> demo-content</p>
+                        <small>Generated: @DateTime.Now.ToString("HH:mm:ss")</small>
+                    </div>
+                </distributed-cache>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Environment-based Content</h5>
+            </div>
+            <div class="card-body">
+                <environment include="Development">
+                    <div class="alert alert-success">
+                        <i class="fas fa-code"></i> This content only shows in Development environment
+                    </div>
+                </environment>
+                <environment exclude="Development">
+                    <div class="alert alert-info">
+                        <i class="fas fa-server"></i> This content shows in all environments EXCEPT Development
+                    </div>
+                </environment>
+                <environment include="Staging,Production">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i> This content shows in Staging and Production environments
+                    </div>
+                </environment>
+            </div>
+        </div>
+    </div>
+</div>
