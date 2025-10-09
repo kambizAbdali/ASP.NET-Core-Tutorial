@@ -1,0 +1,87 @@
+﻿@model TagHelpersDemo.Models.Product
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2>Create New Product</h2>
+        <p class="text-muted">Demonstrating Form Tag Helpers with model binding and validation.</p>
+        
+        <form asp-controller="Home" asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            
+            <div class="card">
+                <div class="card-header">
+                    <h5>Product Information</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="alert alert-danger"></div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Name" class="form-label"></label>
+                                <input asp-for="Name" class="form-control" placeholder="Enter product name" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label asp-for="Price" class="form-label"></label>
+                                <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label asp-for="CategoryId" class="form-label"></label>
+                                <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control">
+                                    <option value="">-- Select Category --</option>
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Status" class="form-label"></label>
+                                <select asp-for="Status" asp-items="ViewBag.StatusList" class="form-control">
+                                    <option value="">-- Select Status --</option>
+                                </select>
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label asp-for="StockQuantity" class="form-label"></label>
+                                <input asp-for="StockQuantity" class="form-control" type="number" />
+                                <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="mb-3 form-check">
+                                <input asp-for="InStock" class="form-check-input" />
+                                <label asp-for="InStock" class="form-check-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter product description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" bs-button-color="primary" bs-button-icon="fas fa-save">
+                        Create Product
+                    </button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to List
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
