@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Filter Demo Home";
+}
+
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">🎯 ASP.NET Core Filter Demo</h1>
+        <p class="lead">This application demonstrates all types of filters in ASP.NET Core MVC</p>
+        <hr class="my-4">
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h3>🧪 Test Endpoints:</h3>
+                <div class="list-group">
+                    <a href="/api/users" class="list-group-item list-group-item-action">
+                        🔑 API Users (Requires API Key)
+                    </a>
+                    <a href="/api/admin/users" class="list-group-item list-group-item-action">
+                        👨‍💼 Admin Users (Requires Admin Role)
+                    </a>
+                    <a href="/api/products" class="list-group-item list-group-item-action">
+                        💾 Cached Products (Resource Filter)
+                    </a>
+                    <a href="/api/formatted/products" class="list-group-item list-group-item-action">
+                        📊 Formatted Products (Result Filter)
+                    </a>
+                    <a href="/api/slow/products" class="list-group-item list-group-item-action">
+                        ⏰ Slow Products (Timing Filter)
+                    </a>
+                    <a href="/api/error/test" class="list-group-item list-group-item-action text-danger">
+                        🚨 Test Error (Exception Filter)
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <h3>📋 Filter Types:</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Authorization Filters</strong>
+                        <br><small>API Key & Role Authorization</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Resource Filters</strong>
+                        <br><small>Caching & Timing</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Action Filters</strong>
+                        <br><small>Logging & Validation</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Exception Filters</strong>
+                        <br><small>Global & Custom Exception Handling</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Result Filters</strong>
+                        <br><small>Headers & Response Formatting</small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h4>🔧 How to Test:</h4>
+            <p>Use Postman or curl with these headers:</p>
+            <ul>
+                <li><code>X-API-Key: 12345-ABCDE-67890</code></li>
+                <li><code>User-Role: Admin</code></li>
+            </ul>
+        </div>
+    </div>
+</div>
