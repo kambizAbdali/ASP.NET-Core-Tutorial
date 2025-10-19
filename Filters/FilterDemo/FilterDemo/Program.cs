@@ -6,6 +6,15 @@ using FilterDemo.Filters.ResultFilter;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+class Person { public string Name; }
+var x = new Person { Name = "Ali" };
+var y = new Person { Name = "Ali" };
+bool r1 = (x == y); // false، چون مقایسه آدرس
+
+
+
 // Add services to the container
 builder.Services.AddControllersWithViews();
 

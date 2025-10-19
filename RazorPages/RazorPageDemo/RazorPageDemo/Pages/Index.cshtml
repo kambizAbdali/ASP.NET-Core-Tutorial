@@ -1,0 +1,58 @@
+﻿@page
+@model RazorPageDemo.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">🛍️ RazorPageDemo</h1>
+    <p class="lead mb-5">Welcome to our simplified Razor Pages demo application!</p>
+    
+    <div class="row mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">📦 Products Management</h5>
+                    <p class="card-text">Complete CRUD operations for managing your product catalog.</p>
+                    <a asp-page="/Products/Index" class="btn btn-primary">View Products</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">🧮 Calculator</h5>
+                    <p class="card-text">Multi-handler calculator with different operations.</p>
+                    <a asp-page="/Calculator" class="btn btn-success">Open Calculator</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">👤 User Profile</h5>
+                    <p class="card-text">Manage your profile with multiple forms.</p>
+                    <a asp-page="/Profile" class="btn btn-info">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h3>✨ Features:</h3>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <ul class="list-group text-start">
+                    <li class="list-group-item">✅ Complete CRUD Operations</li>
+                    <li class="list-group-item">✅ Entity Framework Core</li>
+                    <li class="list-group-item">✅ Multiple POST Handlers</li>
+                    <li class="list-group-item">✅ Custom Page Filters</li>
+                    <li class="list-group-item">✅ Model Validation</li>
+                    <li class="list-group-item">✅ Async Operations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@page
+@model RazorPageDemo.Pages.Products.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1>Delete Product</h1>
+        
+        <div class="alert alert-warning mt-4">
+            <h4>Are you sure you want to delete this product?</h4>
+            <p class="mb-0">This action cannot be undone.</p>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0">Product Details</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">ID</dt>
+                    <dd class="col-sm-9">@Model.Product.Id</dd>
+
+                    <dt class="col-sm-3">Name</dt>
+                    <dd class="col-sm-9">@Model.Product.Name</dd>
+
+                    <dt class="col-sm-3">Price</dt>
+                    <dd class="col-sm-9">@Model.Product.Price.ToString("C")</dd>
+
+                    <dt class="col-sm-3">Category</dt>
+                    <dd class="col-sm-9">@Model.Product.Category</dd>
+
+                    <dt class="col-sm-3">Description</dt>
+                    <dd class="col-sm-9">@Model.Product.Description</dd>
+
+                    <dt class="col-sm-3">Created Date</dt>
+                    <dd class="col-sm-9">@Model.Product.CreatedDate.ToString("MMM dd, yyyy")</dd>
+                </dl>
+            </div>
+        </div>
+
+        <form method="post" class="mt-4">
+            <input type="hidden" asp-for="Product.Id" />
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-danger me-2" 
+                        onclick="return confirm('Are you absolutely sure? This cannot be undone!');">
+                    Delete Product
+                </button>
+                <button type="submit" asp-page-handler="Cancel" class="btn btn-secondary">Cancel</button>
+                <a asp-page="Index" class="btn btn-outline-primary ms-2">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

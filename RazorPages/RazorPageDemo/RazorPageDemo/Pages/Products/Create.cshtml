@@ -1,0 +1,245 @@
+﻿@page
+@model RazorPageDemo.Pages.Products.CreateModel
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h1 class="display-6">➕ Create New Product</h1>
+                    <p class="text-muted">Add a new product to your catalog</p>
+                </div>
+                <a asp-page="Index" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+
+            <!-- Product Form -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">📝 Product Information</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        
+                        <!-- Product Name & Price -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Product.Name" class="form-label">
+                                        <i class="fas fa-tag text-primary me-1"></i>Product Name *
+                                    </label>
+                                    <input asp-for="Product.Name" class="form-control" 
+                                           placeholder="Enter product name" />
+                                    <span asp-validation-for="Product.Name" class="text-danger small"></span>
+                                    <div class="form-text">The name of your product (max 100 characters)</div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Product.Price" class="form-label">
+                                        <i class="fas fa-dollar-sign text-success me-1"></i>Price *
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input asp-for="Product.Price" class="form-control" 
+                                               placeholder="0.00" step="0.01" min="0.01" />
+                                    </div>
+                                    <span asp-validation-for="Product.Price" class="text-danger small"></span>
+                                    <div class="form-text">Price must be between $0.01 and $10,000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="form-group mb-3">
+                            <label asp-for="Product.Category" class="form-label">
+                                <i class="fas fa-folder text-info me-1"></i>Category *
+                            </label>
+                            <select asp-for="Product.Category" class="form-select">
+                                <option value="">Select a category</option>
+                                <option value="Electronics">📱 Electronics</option>
+                                <option value="Clothing">👕 Clothing</option>
+                                <option value="Books">📚 Books</option>
+                                <option value="Home">🏠 Home & Garden</option>
+                                <option value="Sports">⚽ Sports</option>
+                                <option value="Toys">🧸 Toys</option>
+                                <option value="Beauty">💄 Beauty</option>
+                                <option value="Food">🍎 Food & Beverages</option>
+                                <option value="Other">📦 Other</option>
+                            </select>
+                            <span asp-validation-for="Product.Category" class="text-danger small"></span>
+                            <div class="form-text">Select the most appropriate category for your product</div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Product.Description" class="form-label">
+                                <i class="fas fa-align-left text-warning me-1"></i>Description
+                            </label>
+                            <textarea asp-for="Product.Description" class="form-control" rows="4" 
+                                      placeholder="Enter product description (optional)"></textarea>
+                            <span asp-validation-for="Product.Description" class="text-danger small"></span>
+                            <div class="form-text">
+                                Describe your product features and benefits (max 500 characters)
+                                <span id="charCount" class="float-end">0/500</span>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-group">
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-success flex-fill">
+                                    <i class="fas fa-save me-1"></i> Create Product
+                                </button>
+                                <button type="submit" asp-page-handler="Cancel" class="btn btn-secondary">
+                                    <i class="fas fa-times me-1"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Help Card -->
+            <div class="card mt-4 border-info">
+                <div class="card-header bg-info text-white">
+                    <h6 class="mb-0"><i class="fas fa-lightbulb me-1"></i> Tips for Creating Products</h6>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="fas fa-check text-success me-2"></i> Use clear and descriptive product names</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Choose the most relevant category</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Provide detailed descriptions for better customer understanding</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Set competitive pricing based on market research</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+
+        .card {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #198754 0%, #157347 100%);
+            border: none;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #157347 0%, #0f5734 100%);
+            transform: translateY(-1px);
+        }
+
+        .needs-validation .form-control:invalid,
+        .needs-validation .form-select:invalid {
+            border-color: #dc3545;
+        }
+
+        .needs-validation .form-control:valid,
+        .needs-validation .form-select:valid {
+            border-color: #198754;
+        }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    <script>
+        // Character count for description
+        document.addEventListener('DOMContentLoaded', function() {
+            const descriptionTextarea = document.getElementById('Product_Description');
+            const charCount = document.getElementById('charCount');
+
+            if (descriptionTextarea && charCount) {
+                // Update character count on input
+                descriptionTextarea.addEventListener('input', function() {
+                    const length = this.value.length;
+                    charCount.textContent = `${length}/500`;
+                    
+                    // Change color based on length
+                    if (length > 450) {
+                        charCount.className = 'float-end text-warning';
+                    } else if (length > 500) {
+                        charCount.className = 'float-end text-danger';
+                    } else {
+                        charCount.className = 'float-end text-muted';
+                    }
+                });
+
+                // Initial count
+                charCount.textContent = `${descriptionTextarea.value.length}/500`;
+            }
+
+            // Enhanced form validation
+            const form = document.querySelector('.needs-validation');
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            }
+
+            // Price input formatting
+            const priceInput = document.getElementById('Product_Price');
+            if (priceInput) {
+                priceInput.addEventListener('blur', function() {
+                    if (this.value) {
+                        const value = parseFloat(this.value);
+                        if (!isNaN(value)) {
+                            this.value = value.toFixed(2);
+                        }
+                    }
+                });
+            }
+
+            // Auto-focus on product name field
+            const productNameInput = document.getElementById('Product_Name');
+            if (productNameInput) {
+                productNameInput.focus();
+            }
+        });
+
+        // Confirm cancel action
+        function confirmCancel() {
+            return confirm('Are you sure you want to cancel? Any unsaved changes will be lost.');
+        }
+
+        // Attach cancel confirmation to cancel button
+        document.addEventListener('DOMContentLoaded', function() {
+            const cancelButton = document.querySelector('button[asp-page-handler="Cancel"]');
+            if (cancelButton) {
+                cancelButton.addEventListener('click', function(e) {
+                    if (!confirmCancel()) {
+                        e.preventDefault();
+                    }
+                });
+            }
+        });
+    </script>
+}

@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Registration Successful";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+        <h2>Registration Successful!</h2>
+        <hr />
+        
+        <div class="alert alert-info">
+            <h4>Please check your email</h4>
+            <p>We've sent a confirmation link to <strong>@ViewBag.Email</strong>.</p>
+            <p>Please check your email and click the confirmation link to activate your account.</p>
+        </div>
+        
+        <p>Didn't receive the email? <a asp-action="Login" class="btn btn-outline-primary">Try logging in</a></p>
+    </div>
+</div>
