@@ -1,0 +1,189 @@
+﻿@model IdentityCompleteProject.Models.User
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>User Details</h2>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">User Information</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Full Name:</dt>
+                        <dd class="col-sm-8">@Model.FullName</dd>
+
+                        <dt class="col-sm-4">Email:</dt>
+                        <dd class="col-sm-8">@Model.Email</dd>
+
+                        <dt class="col-sm-4">Phone Number:</dt>
+                        <dd class="col-sm-8">@(Model.PhoneNumber ?? "Not set")</dd>
+
+                        <dt class="col-sm-4">National Code:</dt>
+                        <dd class="col-sm-8">@Model.NationalCode</dd>
+
+                        <dt class="col-sm-4">Birth Date:</dt>
+                        <dd class="col-sm-8">@Model.BirthDate.ToShortDateString()</dd>
+
+                        <dt class="col-sm-4">Email Confirmed:</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.EmailConfirmed)
+                            {
+                                <span class="badge bg-success">Yes</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning">No</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4">Lockout Enabled:</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.LockoutEnabled)
+                            {
+                                <span class="badge bg-info">Yes</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">No</span>
+                            }
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Role Management</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Current Roles:</h6>
+                    @if (ViewBag.UserRoles != null && ((List<string>)ViewBag.UserRoles).Any())
+                    {
+                        foreach (var role in ViewBag.UserRoles)
+                        {
+                            <span class="badge bg-primary me-1">@role</span>
+                            
+                            <form asp-action="RemoveFromRole" method="post" class="d-inline">
+                                <input type="hidden" name="userId" value="@Model.Id" />
+                                <input type="hidden" name="roleName" value="@role" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Remove</button>
+                            </form>
+                            <br />
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">No roles assigned</p>
+                    }
+
+                    <hr />
+                    
+                    <h6>Add to Role:</h6>
+                    <form asp-action="AddToRole" method="post" class="form-inline">
+                        <input type="hidden" name="userId" value="@Model.Id" />
+                        <div class="input-group">
+                            <select name="roleName" class="form-select" required>
+                                <option value="">Select a role</option>
+                                @foreach (var role in ViewBag.AllRoles)
+                                {
+                                    <option value="@role.Name">@role.Name</option>
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-primary">Add Role</button>
+                        </div>
+                    </form>
+
+                    <hr />
+                    
+                    <div class="btn-group">
+                        @if (Model.LockoutEnd.HasValue && Model.LockoutEnd > DateTimeOffset.Now)
+                        {
+                            <form asp-action="UnlockUser" method="post">
+                                <input type="hidden" name="userId" value="@Model.Id" />
+                                <button type="submit" class="btn btn-success">Unlock Account</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-action="LockUser" method="post">
+                                <input type="hidden" name="userId" value="@Model.Id" />
+                                <button type="submit" class="btn btn-warning">Lock Account (7 days)</button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Addresses Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">User Addresses</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Addresses != null && Model.Addresses.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Address Line</th>
+                                        <th>City</th>
+                                        <th>Postal Code</th>
+                                        <th>Primary</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var address in Model.Addresses)
+                                    {
+                                        <tr>
+                                            <td>@address.AddressLine</td>
+                                            <td>@address.City</td>
+                                            <td>@address.PostalCode</td>
+                                            <td>
+                                                @if (address.IsPrimary)
+                                                {
+                                                    <span class="badge bg-success">Yes</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">No</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No addresses found for this user.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

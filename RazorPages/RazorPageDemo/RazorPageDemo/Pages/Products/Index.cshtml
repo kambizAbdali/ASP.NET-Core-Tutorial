@@ -1,0 +1,264 @@
+﻿@page
+@model RazorPageDemo.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Products Management";
+}
+
+<div class="container-fluid">
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="display-6">📦 Products Management</h1>
+            <p class="text-muted">Manage your product catalog with full CRUD operations</p>
+        </div>
+        <a asp-page="Create" class="btn btn-primary">
+            <i class="fas fa-plus-circle"></i> Add New Product
+        </a>
+    </div>
+
+    <!-- Alert Messages -->
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle"></i> @Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle"></i> @Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Filter Section -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">🔍 Filter Products</h5>
+        </div>
+        <div class="card-body">
+            <form method="get" class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label for="category" class="form-label">Filter by Category</label>
+                    <input type="text" name="category" class="form-control" placeholder="Enter category..." 
+                           value="@Model.SearchCategory" />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">&nbsp;</label>
+                    <div>
+                        <button type="submit" class="btn btn-outline-primary me-2">
+                            <i class="fas fa-search"></i> Filter
+                        </button>
+                        <a asp-page="./Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-refresh"></i> Clear
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <span class="text-muted">
+                        <i class="fas fa-chart-bar"></i> 
+                        Total Products: <strong>@Model.Products.Count</strong>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Products Table -->
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">📋 Products List</h5>
+            @if (!string.IsNullOrEmpty(Model.SearchCategory))
+            {
+                <span class="badge bg-info fs-6">
+                    Category: @Model.SearchCategory
+                </span>
+            }
+        </div>
+        <div class="card-body p-0">
+            @if (Model.Products.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Created Date</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model.Products)
+                            {
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-secondary">#@product.Id</span>
+                                    </td>
+                                    <td>
+                                        <strong>@product.Name</strong>
+                                    </td>
+                                    <td>
+                                        <span class="fw-bold text-success">@product.Price.ToString("C")</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info text-dark">@product.Category</span>
+                                    </td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(product.Description))
+                                        {
+                                            <span class="text-truncate" style="max-width: 200px;" 
+                                                  title="@product.Description">
+                                                @product.Description
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">No description</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">@product.CreatedDate.ToString("MMM dd, yyyy")</small>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <!-- View Details Button -->
+                                            <a asp-page="./Details" asp-route-id="@product.Id" 
+                                               class="btn btn-info" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            
+                                            <!-- Edit Button -->
+                                            <a asp-page="./Edit" asp-route-id="@product.Id" 
+                                               class="btn btn-warning" title="Edit Product">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            
+                                            <!-- Delete Form -->
+                                            <form method="post" asp-page-handler="Delete" asp-route-id="@product.Id" 
+                                                  class="d-inline" 
+                                                  onsubmit="return confirm('Are you sure you want to delete @product.Name ? This action cannot be undone.');">
+                                                <button type="submit" class="btn btn-danger" title="Delete Product">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <!-- Empty State -->
+                <div class="text-center py-5">
+                    <div class="mb-4">
+                        <i class="fas fa-box-open fa-4x text-muted"></i>
+                    </div>
+                    <h4 class="text-muted">No Products Found</h4>
+                    <p class="text-muted mb-4">
+                        @if (!string.IsNullOrEmpty(Model.SearchCategory))
+                        {
+                            <text>No products found in category "@Model.SearchCategory"</text>
+                        }
+                        else
+                        {
+                            <text>Get started by creating your first product</text>
+                        }
+                    </p>
+                    <a asp-page="Create" class="btn btn-primary btn-lg">
+                        <i class="fas fa-plus-circle"></i> Create First Product
+                    </a>
+                </div>
+            }
+        </div>
+        
+        <!-- Footer with Summary -->
+        @if (Model.Products.Any())
+        {
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                        <small class="text-muted">
+                            Showing <strong>@Model.Products.Count</strong> 
+                            @(Model.Products.Count == 1 ? "product" : "products")
+                            @if (!string.IsNullOrEmpty(Model.SearchCategory))
+                            {
+                                <text>in category "<strong>@Model.SearchCategory</strong>"</text>
+                            }
+                        </small>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <small class="text-muted">
+                            Total Value: <strong>@Model.Products.Sum(p => p.Price).ToString("C")</strong>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-4">
+        <a asp-page="/Index" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .table th {
+            border-top: none;
+            font-weight: 600;
+            background-color: #343a40;
+            color: white;
+        }
+        
+        .btn-group .btn {
+            border-radius: 0.25rem;
+            margin: 0 1px;
+        }
+        
+        .table-hover tbody tr:hover {
+            background-color: rgba(0, 0, 0, 0.075);
+        }
+        
+        .text-truncate {
+            display: inline-block;
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                });
+            }, 5000);
+        });
+
+        // Enhanced delete confirmation
+        function confirmDelete(productName) {
+            return confirm(`Are you sure you want to delete "${productName}"? This action cannot be undone.`);
+        }
+    </script>
+}

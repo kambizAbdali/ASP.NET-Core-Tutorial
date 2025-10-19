@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e3fb5e28-01fc-4c6c-94e8-28c5be08c280": {
+      "ProjectGuid": "e3fb5e28-01fc-4c6c-94e8-28c5be08c280",
+      "DisplayName": "RazorPageDemo",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
