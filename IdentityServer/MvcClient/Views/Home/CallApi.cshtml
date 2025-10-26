@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Call API";
+}
+
+<div class="container mt-4">
+    <h2>🌤️ Call Weather API</h2>
+    <p class="lead">Test calling protected APIs using your access token</p>
+
+    @if (TempData["RefreshResult"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["RefreshResult"]
+        </div>
+    }
+
+    <!-- Public Weather API (No auth required) -->
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Public Weather API (No Authentication Required)</h5>
+        </div>
+        <div class="card-body">
+            @if (ViewData["PublicApiData"] != null)
+            {
+                <div class="alert alert-success">
+                    <h6>✅ Public API Call Successful!</h6>
+                    <pre class="mt-3 p-3 bg-light border rounded">@ViewData["PublicApiData"]</pre>
+                </div>
+            }
+            <form method="post" action="/Home/CallPublicApi">
+                <button type="submit" class="btn btn-primary">
+                    🌐 Call Public API
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Protected Weather API -->
+    <div class="card mt-4">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Protected Weather API (Authentication Required)</h5>
+        </div>
+        <div class="card-body">
+            @if (ViewData["ApiData"] != null)
+            {
+                <div class="alert alert-success">
+                    <h6>✅ Protected API Call Successful!</h6>
+                    <pre class="mt-3 p-3 bg-light border rounded">@ViewData["ApiData"]</pre>
+                </div>
+            }
+            <form method="post" action="/Home/CallApi">
+                <button type="submit" class="btn btn-success">
+                    🚀 Call Protected API
+                </button>
+            </form>
+            <small class="text-muted">Requires valid access token</small>
+        </div>
+    </div>
+
+    <!-- Admin Weather API -->
+    <div class="card mt-4">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Admin Weather API (Admin Role Required)</h5>
+        </div>
+        <div class="card-body">
+            @if (ViewData["UserApiData"] != null)
+            {
+                <div class="alert alert-warning">
+                    <h6>🔐 Admin API Response</h6>
+                    <pre class="mt-3 p-3 bg-light border rounded">@ViewData["UserApiData"]</pre>
+                </div>
+            }
+            <form method="post" action="/Home/CallUserApi">
+                <button type="submit" class="btn btn-warning">
+                    ⚡ Call Admin API
+                </button>
+            </form>
+            <small class="text-muted">Note: Requires admin role</small>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="/" class="btn btn-secondary">← Back to Home</a>
+        <a href="/Home/UserInfo" class="btn btn-info">👤 View User Info</a>
+        <a href="/Home/Tokens" class="btn btn-warning">🔑 View Tokens</a>
+        <a href="/Home/RefreshTokens" class="btn btn-outline-info">🔄 Refresh Tokens</a>
+    </div>
+</div>
