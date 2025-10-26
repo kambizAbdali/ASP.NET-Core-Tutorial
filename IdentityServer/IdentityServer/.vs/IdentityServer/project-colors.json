@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fe2a1ec7-9110-4e6c-a0d7-cda8c7eb66b9": {
+      "ProjectGuid": "fe2a1ec7-9110-4e6c-a0d7-cda8c7eb66b9",
+      "DisplayName": "IdentityServer",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "37fd0766-8b11-41d0-b4a1-f9687df71637": {
+      "ProjectGuid": "37fd0766-8b11-41d0-b4a1-f9687df71637",
+      "DisplayName": "MvcClient",
+      "ColorIndex": 1
+    },
+    "63ef4bc3-9b33-4bc8-850f-435e56151823": {
+      "ProjectGuid": "63ef4bc3-9b33-4bc8-850f-435e56151823",
+      "DisplayName": "ApiProject",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

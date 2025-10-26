@@ -1,0 +1,299 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Token Information";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVC Client</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .token-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .token-header {
+            border-radius: 10px 10px 0 0 !important;
+            padding: 15px 20px;
+        }
+        .token-body {
+            padding: 20px;
+        }
+        .token-pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 0.85rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .token-badge {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Token Information</li>
+                    </ol>
+                </nav>
+                
+                <h2>🔑 Token Information</h2>
+                <p class="lead">Current authentication tokens from Identity Server</p>
+            </div>
+        </div>
+
+        @if (ViewData["Error"] != null)
+        {
+            <div class="alert alert-danger">
+                <h5>❌ Error</h5>
+                <p class="mb-0">@ViewData["Error"]</p>
+            </div>
+        }
+
+        <div class="row">
+            <!-- Access Token Card -->
+            <div class="col-md-6 mb-4">
+                <div class="card token-card">
+                    <div class="card-header token-header bg-warning text-dark">
+                        <h5 class="mb-0">🛡️ Access Token</h5>
+                    </div>
+                    <div class="card-body token-body">
+                        @if (Model.AccessToken != null)
+                        {
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-success token-badge">Length: @Model.AccessTokenLength characters</span>
+                                <button class="btn btn-sm btn-outline-secondary copy-btn" onclick="copyToClipboard('access-token-preview')">
+                                    📋 Copy
+                                </button>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label"><strong>Token Preview (First 100 characters):</strong></label>
+                                <div class="token-pre" id="access-token-preview">
+                                    @Model.AccessToken
+                                </div>
+                            </div>
+                            
+                            <details>
+                                <summary class="btn btn-outline-info btn-sm">📖 Show Full Token</summary>
+                                <div class="mt-2">
+                                    <label class="form-label"><strong>Full Token:</strong></label>
+                                    <div class="token-pre" id="access-token-full">
+                                        @Model.AccessTokenFull
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-secondary mt-2" onclick="copyToClipboard('access-token-full')">
+                                        📋 Copy Full Token
+                                    </button>
+                                </div>
+                            </details>
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning">
+                                <p class="mb-0">❌ No access token found</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- ID Token Card -->
+            <div class="col-md-6 mb-4">
+                <div class="card token-card">
+                    <div class="card-header token-header bg-success text-white">
+                        <h5 class="mb-0">👤 ID Token</h5>
+                    </div>
+                    <div class="card-body token-body">
+                        @if (Model.IdToken != null)
+                        {
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-success token-badge">Length: @Model.IdTokenLength characters</span>
+                                <button class="btn btn-sm btn-outline-light copy-btn" onclick="copyToClipboard('id-token-preview')">
+                                    📋 Copy
+                                </button>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label"><strong>Token Preview (First 100 characters):</strong></label>
+                                <div class="token-pre" id="id-token-preview">
+                                    @Model.IdToken
+                                </div>
+                            </div>
+                            
+                            <details>
+                                <summary class="btn btn-outline-info btn-sm">📖 Show Full Token</summary>
+                                <div class="mt-2">
+                                    <label class="form-label"><strong>Full Token:</strong></label>
+                                    <div class="token-pre" id="id-token-full">
+                                        @Model.IdTokenFull
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-light mt-2" onclick="copyToClipboard('id-token-full')">
+                                        📋 Copy Full Token
+                                    </button>
+                                </div>
+                            </details>
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning">
+                                <p class="mb-0">❌ No ID token found</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refresh Token Card -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card token-card">
+                    <div class="card-header token-header bg-secondary text-white">
+                        <h5 class="mb-0">🔄 Refresh Token</h5>
+                    </div>
+                    <div class="card-body token-body">
+                        @if (Model.RefreshToken != null)
+                        {
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-info token-badge">Available</span>
+                                <button class="btn btn-sm btn-outline-light copy-btn" onclick="copyToClipboard('refresh-token')">
+                                    📋 Copy
+                                </button>
+                            </div>
+                            
+                            <label class="form-label"><strong>Refresh Token:</strong></label>
+                            <div class="token-pre" id="refresh-token">
+                                @Model.RefreshToken
+                            </div>
+                            
+                            <div class="alert alert-info mt-3">
+                                <small>
+                                    <strong>💡 Note:</strong> Refresh tokens are used to obtain new access tokens 
+                                    without requiring the user to log in again.
+                                </small>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info">
+                                <p class="mb-0">ℹ️ No refresh token available. This is normal for some grant types.</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Token Details Card -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card token-card">
+                    <div class="card-header token-header bg-info text-white">
+                        <h5 class="mb-0">📊 Token Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Access Token Type:</strong></td>
+                                            <td><span class="badge bg-primary">Bearer</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Token Lifetime:</strong></td>
+                                            <td>60 minutes</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Issuer:</strong></td>
+                                            <td>https://localhost:5001</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Authentication Time:</strong></td>
+                                            <td>@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Client ID:</strong></td>
+                                            <td>mvc_client</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Grant Type:</strong></td>
+                                            <td>Authorization Code</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="/" class="btn btn-secondary me-md-2">← Back to Home</a>
+                    <a href="/Home/CallApi" class="btn btn-success me-md-2">🌤️ Call Weather API</a>
+                    <a href="/Home/UserInfo" class="btn btn-info me-md-2">👤 View User Info</a>
+                    <a href="/Home/Secure" class="btn btn-primary">🔐 Secure Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent || element.innerText;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                // Show temporary success message
+                const btn = event.target;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅ Copied!';
+                btn.classList.remove('btn-outline-secondary', 'btn-outline-light');
+                btn.classList.add('btn-success');
+                
+                setTimeout(function() {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('btn-success');
+                    if (btn.classList.contains('btn-outline-light')) {
+                        btn.classList.add('btn-outline-light');
+                    } else {
+                        btn.classList.add('btn-outline-secondary');
+                    }
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                alert('Failed to copy token to clipboard');
+            });
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

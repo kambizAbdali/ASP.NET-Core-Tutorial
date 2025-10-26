@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to MVC Client</h1>
+    
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="alert alert-success">
+            <h4>You are authenticated!</h4>
+            <p>Welcome, @User.Identity.Name!</p>
+        </div>
+        
+        <div class="mt-4">
+            <a href="/Home/Secure" class="btn btn-primary">View Claims</a>
+            <a href="/Home/CallApi" class="btn btn-success">Call Weather API</a>
+            <a href="/Home/Logout" class="btn btn-warning">Logout</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            <h4>You are not authenticated</h4>
+            <p>Please log in to access protected resources.</p>
+        </div>
+        
+        <a href="/Home/Secure" class="btn btn-primary">Login</a>
+    }
+</div>
