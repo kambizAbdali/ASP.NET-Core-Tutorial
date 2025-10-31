@@ -1,0 +1,11 @@
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.AssemblyInfoInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.AssemblyInfo.cs
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.csproj.CoreCompileInputs.cache
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\bin\Debug\net6.0\TaskManagement.Core.deps.json
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\bin\Debug\net6.0\TaskManagement.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\bin\Debug\net6.0\ref\TaskManagement.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\bin\Debug\net6.0\TaskManagement.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\ref\TaskManagement.Core.dll
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.pdb
