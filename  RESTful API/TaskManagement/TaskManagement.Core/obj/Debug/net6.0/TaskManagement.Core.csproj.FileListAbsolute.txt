@@ -9,3 +9,4 @@ D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\bi
 D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.dll
 D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\ref\TaskManagement.Core.dll
 D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.pdb
+D:\.Net\ASP.NET-Core-Tutorial\ RESTful API\TaskManagement\TaskManagement.Core\obj\Debug\net6.0\TaskManagement.Core.csproj.AssemblyReference.cache
