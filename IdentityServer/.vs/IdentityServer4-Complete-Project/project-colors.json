@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "261b0862-fc52-4866-bff9-42bbc5f88e96": {
+      "ProjectGuid": "261b0862-fc52-4866-bff9-42bbc5f88e96",
+      "DisplayName": "ApiProject",
+      "ColorIndex": 0
+    },
+    "cb3ba298-3e6b-4428-a9a1-369a1d34c5fd": {
+      "ProjectGuid": "cb3ba298-3e6b-4428-a9a1-369a1d34c5fd",
+      "DisplayName": "MvcClient",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
