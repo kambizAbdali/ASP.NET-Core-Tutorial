@@ -19,22 +19,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Add API Versioning
-builder.Services.AddApiVersioning(options =>
+builder.Services.AddApiVersioning(options => // Configures API versioning services.
 {
-    options.DefaultApiVersion = new ApiVersion(1, 0);
-    options.AssumeDefaultVersionWhenUnspecified = true;
-    options.ReportApiVersions = true;
-    options.ApiVersionReader = ApiVersionReader.Combine(
-        new UrlSegmentApiVersionReader(),
-        new HeaderApiVersionReader("x-api-version"),
-        new QueryStringApiVersionReader("api-version")
+    options.DefaultApiVersion = new ApiVersion(1, 0); // Sets the default API version to 1.0.
+    options.AssumeDefaultVersionWhenUnspecified = true; // If no version is specified, assume the default.
+    options.ReportApiVersions = true; // Includes the supported API versions in the response headers.
+    options.ApiVersionReader = ApiVersionReader.Combine( // Defines how the API version is read from the request.
+        new UrlSegmentApiVersionReader(), // Reads the version from the URL segment (e.g., /v1/controller).
+        new HeaderApiVersionReader("x-api-version"), // Reads the version from the "x-api-version" header.
+        new QueryStringApiVersionReader("api-version")  // Reads the version from the "api-version" query string parameter.
     );
 });
 
 // Add API Explorer for versioning
 builder.Services.AddVersionedApiExplorer(options =>
 {
-    options.GroupNameFormat = "'v'VVV";
+    options.GroupNameFormat = "'v'VVV"; // Sets the format for the API version group name (e.g., 'v1').
     options.SubstituteApiVersionInUrl = true;
 });
 // Add Infrastructure layer (EF Core, Repositories, Services)
@@ -49,23 +49,23 @@ var key = Encoding.ASCII.GetBytes(jwtSettings["Secret"]);
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; // Sets the default authentication scheme to JWT Bearer.
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; // Sets the default challenge scheme to JWT Bearer.
 })
 .AddJwtBearer(options =>
 {
     options.RequireHttpsMetadata = false; // برای توسعه غیرفعال کنید
     options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
+    options.TokenValidationParameters = new TokenValidationParameters // Configures the token validation parameters.
     {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = true,
-        ValidIssuer = jwtSettings["Issuer"],
-        ValidateAudience = true,
-        ValidAudience = jwtSettings["Audience"],
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero
+        ValidateIssuerSigningKey = true, // Specifies that the issuer's signing key should be validated.
+        IssuerSigningKey = new SymmetricSecurityKey(key), // Sets the issuer's signing key.
+        ValidateIssuer = true, // Specifies that the issuer should be validated.
+        ValidIssuer = jwtSettings["Issuer"], // Sets the valid issuer from the JWT settings.
+        ValidateAudience = true, // Specifies that the audience should be validated.
+        ValidAudience = jwtSettings["Audience"], // Sets the valid audience from the JWT settings.
+        ValidateLifetime = true, // Specifies that the token's lifetime should be validated.
+        ClockSkew = TimeSpan.Zero // Sets the clock skew to zero, meaning no tolerance for time differences.
     };
 
     options.Events = new JwtBearerEvents

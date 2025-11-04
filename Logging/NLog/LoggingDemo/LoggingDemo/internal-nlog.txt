@@ -1,0 +1,97 @@
+2025-11-04 00:34:30.0351 Info Message Template Auto Format enabled
+2025-11-04 00:34:30.1942 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=coloredConsole)
+2025-11-04 00:34:30.2241 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allFile)
+2025-11-04 00:34:30.2253 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorFile)
+2025-11-04 00:34:30.2598 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=jsonFile)
+2025-11-04 00:34:30.2760 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+   --- End of inner exception stack trace ---
+2025-11-04 00:34:30.3384 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=customFile)
+2025-11-04 00:34:30.3680 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2025-11-04 00:34:30.4124 Info Validating config: Targets=5, ConfigItems=155, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 00:34:30.4471 Info Configuration initialized.
+2025-11-04 00:34:30.5408 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2025-11-04 00:34:30.5408 Info Validating config: Targets=5, ConfigItems=155, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 00:41:32.2375 Info Message Template Auto Format enabled
+2025-11-04 00:41:32.3783 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=coloredConsole)
+2025-11-04 00:41:32.4084 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allFile)
+2025-11-04 00:41:32.4166 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorFile)
+2025-11-04 00:41:32.4601 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=jsonFile)
+2025-11-04 00:41:32.4601 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+   --- End of inner exception stack trace ---
+2025-11-04 00:41:32.5183 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=customFile)
+2025-11-04 00:41:32.5303 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2025-11-04 00:41:32.5714 Info Validating config: Targets=5, ConfigItems=155, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 00:41:32.6426 Info Configuration initialized.
+2025-11-04 00:41:32.7049 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2025-11-04 00:41:32.7049 Info Validating config: Targets=5, ConfigItems=155, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 00:45:00.0385 Info Message Template Auto Format enabled
+2025-11-04 00:45:00.1511 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=coloredConsole)
+2025-11-04 00:45:00.1741 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allFile)
+2025-11-04 00:45:00.1823 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorFile)
+2025-11-04 00:45:00.2100 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=jsonFile)
+2025-11-04 00:45:00.2100 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+   --- End of inner exception stack trace ---
+2025-11-04 00:45:00.2534 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=customFile)
+2025-11-04 00:45:00.2629 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2025-11-04 00:45:00.2982 Info Validating config: Targets=5, ConfigItems=155, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 00:45:00.3207 Info Configuration initialized.
+2025-11-04 00:45:00.4013 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2025-11-04 00:45:00.4013 Info Validating config: Targets=5, ConfigItems=155, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 01:02:03.6036 Info Message Template Auto Format enabled
+2025-11-04 01:02:03.7501 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=coloredConsole)
+2025-11-04 01:02:03.7773 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allFile)
+2025-11-04 01:02:03.7773 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorFile)
+2025-11-04 01:02:03.8181 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=jsonFile)
+2025-11-04 01:02:03.8181 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+   --- End of inner exception stack trace ---
+2025-11-04 01:02:03.8686 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=customFile)
+2025-11-04 01:02:03.8806 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2025-11-04 01:02:03.9152 Info Validating config: Targets=5, ConfigItems=155, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 01:02:03.9412 Info Configuration initialized.
+2025-11-04 01:02:04.0015 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2025-11-04 01:02:04.0015 Info Validating config: Targets=5, ConfigItems=155, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 01:56:34.2392 Info Message Template Auto Format enabled
+2025-11-04 01:56:34.3886 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=coloredConsole)
+2025-11-04 01:56:34.4163 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allFile)
+2025-11-04 01:56:34.4163 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorFile)
+2025-11-04 01:56:34.4513 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=jsonFile)
+2025-11-04 01:56:34.6113 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=database)
+2025-11-04 01:56:34.6113 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=customFile)
+2025-11-04 01:56:34.6536 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 01:56:35.0736 Info Configuration initialized.
+2025-11-04 01:56:35.1839 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2025-11-04 01:56:35.1839 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 18:08:21.7273 Info Message Template Auto Format enabled
+2025-11-04 18:08:22.1511 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=coloredConsole)
+2025-11-04 18:08:22.2451 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allFile)
+2025-11-04 18:08:22.2451 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorFile)
+2025-11-04 18:08:22.3190 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=jsonFile)
+2025-11-04 18:08:22.5523 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=database)
+2025-11-04 18:08:22.5523 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=customFile)
+2025-11-04 18:08:22.6096 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 18:08:22.9506 Info Configuration initialized.
+2025-11-04 18:08:23.0658 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2025-11-04 18:08:23.0658 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 18:56:02.5721 Info Message Template Auto Format enabled
+2025-11-04 18:56:02.6819 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=coloredConsole)
+2025-11-04 18:56:02.7011 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allFile)
+2025-11-04 18:56:02.7011 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorFile)
+2025-11-04 18:56:02.7189 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=jsonFile)
+2025-11-04 18:56:02.7453 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=database)
+2025-11-04 18:56:02.7453 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=customFile)
+2025-11-04 18:56:02.7894 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 18:56:02.8661 Info Configuration initialized.
+2025-11-04 18:56:02.9572 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2025-11-04 18:56:02.9586 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config

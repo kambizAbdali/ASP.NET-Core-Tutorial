@@ -1,0 +1,139 @@
+﻿@{
+    ViewData["Title"] = "Logging Demo Home";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <h1 class="display-4">ASP.NET Core Logging Demo</h1>
+            <p class="lead">Comprehensive logging implementation with NLog</p>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text display-6">@ViewBag.UserCount</p>
+                    <a href="@Url.Action("Index", "Users")" class="btn btn-light">Manage Users</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Products</h5>
+                    <p class="card-text display-6">@ViewBag.ProductCount</p>
+                    <a href="@Url.Action("Index", "Products")" class="btn btn-light">Manage Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <h5 class="card-title">Log Files</h5>
+                    <p class="card-text">Multiple formats</p>
+                    <small>Check /logs directory</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logging Actions -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Logging Demonstration</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-2">
+                            <a href="@Url.Action("TestLogging", "Home")" class="btn btn-outline-primary btn-block">
+                                Test All Log Levels
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <a href="@Url.Action("SimulateError", "Home")" class="btn btn-outline-warning btn-block">
+                                Simulate Error
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <a href="@Url.Action("SimulateCritical", "Home")" class="btn btn-outline-danger btn-block">
+                                Simulate Critical Error
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6 mb-2">
+                            <a href="/api/test/database" class="btn btn-outline-info btn-block">
+                                Test Database Connection
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <a href="/api/test/nlog-targets" class="btn btn-outline-secondary btn-block">
+                                Check NLog Targets
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Messages -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success mt-3" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger mt-3" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+    
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-info mt-3" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+
+    <!-- Log Files Info -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Log Output Files</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>File Logs:</h6>
+                            <ul>
+                                <li><code>/logs/all-{date}.log</code> - All logs (Debug and above)</li>
+                                <li><code>/logs/error-{date}.log</code> - Warnings and Errors</li>
+                                <li><code>/logs/custom-{date}.log</code> - Custom format for Services/Controllers</li>
+                                <li><code>/logs/json-{date}.json</code> - Structured JSON logs</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Other Outputs:</h6>
+                            <ul>
+                                <li><strong>Console</strong> - Colored output (Development)</li>
+                                <li><strong>Database</strong> - Error logs in SQL Server</li>
+                                <li><strong>Internal Log</strong> - <code>internal-nlog.txt</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
