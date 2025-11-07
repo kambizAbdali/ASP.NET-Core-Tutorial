@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Online Support";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Online Support Chat</h5>
+                </div>
+                
+                <div class="card-body">
+                    <!-- Message display panel -->
+                    <div id="messagePanel" class="message-panel">
+                        <div id="messageList" class="message-list">
+                            <div class="text-center text-muted mt-5" id="loadingMessage">
+                                Connecting to chat server...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Message input form -->
+                    <div class="message-form mt-3">
+                        <form id="messageForm" class="d-flex">
+                            <input type="text" 
+                                   id="messageInput" 
+                                   class="form-control me-2" 
+                                   placeholder="Type your message here..."
+                                   maxlength="500"
+                                   disabled>
+                            <button type="submit" class="btn btn-success" id="sendButton" disabled>
+                                <i class="fas fa-paper-plane"></i> Send
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="card-footer text-muted">
+                    <small>Connection: <span id="connectionStatus" class="badge bg-warning">Connecting...</span></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+    <script src="~/js/chat.service.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Start connection
+            chatService.startConnection().then(() => {
+                console.log("Chat service initialized");
+                // Enable form when connected
+                $('#messageInput').prop('disabled', false);
+                $('#sendButton').prop('disabled', false);
+                $('#loadingMessage').hide();
+            }).catch(err => {
+                console.error("Failed to initialize chat service:", err);
+            });
+            
+            // Handle form submission
+            $('#messageForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                const messageInput = $('#messageInput');
+                const messageText = messageInput.val().trim();
+                
+                if (messageText) {
+                    chatService.sendMessage(messageText);
+                    messageInput.val('');
+                }
+            });
+        });
+    </script>
+}

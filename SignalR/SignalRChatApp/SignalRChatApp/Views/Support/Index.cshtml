@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Support Dashboard";
+}
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <!-- Sidebar for room list -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h6 class="mb-0">Chat Rooms</h6>
+                </div>
+                <div class="card-body p-0">
+                    <div id="roomList" class="list-group list-group-flush">
+                        <div class="text-center text-muted p-3" id="noRoomsMessage">
+                            Loading rooms...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main chat panel -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0" id="activeRoomTitle">Please select a chat room</h6>
+                    <span id="supportStatus" class="badge bg-warning">Connecting...</span>
+                </div>
+                
+                <div class="card-body p-0">
+                    <!-- Message display panel -->
+                    <div id="supportMessagePanel" class="message-panel">
+                        <div id="roomMessageList" class="message-list">
+                            <div class="text-center text-muted mt-5">
+                                Please select a chat room from the list on the left to view messages
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Support message input form -->
+                    <div class="message-form mt-3 p-3 border-top" id="supportMessageForm" style="display: none;">
+                        <form id="answerForm" class="d-flex">
+                            <input type="text" 
+                                   id="supportMessageInput" 
+                                   class="form-control me-2" 
+                                   placeholder="Type your response here..."
+                                   maxlength="500"
+                                   disabled>
+                            <button type="submit" class="btn btn-success" id="sendSupportButton" disabled>
+                                <i class="fas fa-paper-plane"></i> Send
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+    <script src="~/js/support.service.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Support page loaded, initializing SignalR...");
+            
+            // Initialize support service
+            supportService.startConnection().then((success) => {
+                if (success) {
+                    console.log("Support service initialized successfully");
+                }
+            }).catch(error => {
+                console.error("Failed to initialize support service:", error);
+            });
+            
+            // Handle answer form submission
+            const answerForm = document.getElementById('answerForm');
+            if (answerForm) {
+                answerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const messageInput = document.getElementById('supportMessageInput');
+                    const messageText = messageInput.value.trim();
+                    
+                    if (messageText && supportService.activeRoomId) {
+                        supportService.sendSupportMessage(messageText);
+                    } else if (!supportService.activeRoomId) {
+                        alert("Please select a chat room first.");
+                    }
+                });
+            }
+            
+            // Enable enter key to send message
+            const messageInput = document.getElementById('supportMessageInput');
+            if (messageInput) {
+                messageInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        document.getElementById('answerForm').dispatchEvent(new Event('submit'));
+                    }
+                });
+            }
+        });
+    </script>
+}

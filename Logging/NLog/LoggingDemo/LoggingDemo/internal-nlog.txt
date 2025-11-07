@@ -95,3 +95,14 @@
 2025-11-04 18:56:02.8661 Info Configuration initialized.
 2025-11-04 18:56:02.9572 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
 2025-11-04 18:56:02.9586 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 19:19:33.0597 Info Message Template Auto Format enabled
+2025-11-04 19:19:33.1570 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=coloredConsole)
+2025-11-04 19:19:33.1685 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allFile)
+2025-11-04 19:19:33.1685 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorFile)
+2025-11-04 19:19:33.1808 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=jsonFile)
+2025-11-04 19:19:33.1808 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=database)
+2025-11-04 19:19:33.1808 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=customFile)
+2025-11-04 19:19:33.2102 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
+2025-11-04 19:19:33.2659 Info Configuration initialized.
+2025-11-04 19:19:33.2727 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2025-11-04 19:19:33.2727 Info Validating config: Targets=6, ConfigItems=187, FilePath=D:\.Net\ASP.NET-Core-Tutorial\Logging\NLog\LoggingDemo\LoggingDemo\bin\Debug\net6.0\NLog.config
