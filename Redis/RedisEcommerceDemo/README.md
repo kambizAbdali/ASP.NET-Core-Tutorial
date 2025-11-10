@@ -28,7 +28,42 @@ RedisEcommerceDemo/
 │   └── Shared/
 └── Program.cs
 ```
+### Installation
+1. **Clone and setup**
+```bash
+git clone <repository-url>
+cd RedisEcommerceDemo
+```
 
+2. **Configure Redis connection**
+```json
+// appsettings.json
+{
+  "ConnectionStrings": {
+    "Redis": "localhost:6379,abortConnect=false,connectTimeout=5000"
+  },
+  "RedisSettings": {
+    "InstanceName": "Ecommerce_",
+    "DefaultCacheDuration": 30
+  }
+}
+```
+
+3. **Start Redis server**
+```bash
+# Windows
+redis-server.exe
+
+# Linux/Mac
+redis-server
+```
+
+4. **Run application**
+```bash
+dotnet run
+# Navigate to https://localhost:7001
+```
+ 
 ## 🚀 Core Features Implemented
 
 ### 1. Redis Data Types Implementation
