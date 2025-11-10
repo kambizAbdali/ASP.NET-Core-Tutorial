@@ -1,0 +1,576 @@
+﻿@model RedisEcommerceDemo.Models.CartItem
+@{
+    ViewData["Title"] = "Added to Cart - Redis E-Commerce";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Cache Operation Status -->
+            <div class="alert alert-success mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>⚡ Cache Operation:</strong>
+                        <span id="cacheOperationStatus">Writing to Redis cache...</span>
+                    </div>
+                    <span class="badge bg-success" id="cacheOperationBadge">WRITE</span>
+                </div>
+            </div>
+
+            <!-- Success Message Card -->
+            <div class="card shadow-lg">
+                <div class="card-header bg-success text-white text-center py-4">
+                    <div style="font-size: 3rem;">✅</div>
+                    <h2 class="mb-0">Added to Cart!</h2>
+                </div>
+                
+                <div class="card-body p-5">
+                    <!-- Product Information -->
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-3 text-center">
+                            <div class="product-icon" style="font-size: 4rem;">📦</div>
+                        </div>
+                        <div class="col-md-9">
+                            <h3 class="text-success">@Model.ProductName</h3>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <strong>Quantity:</strong> 
+                                    <span class="badge bg-primary fs-6" id="quantityDisplay">@Model.Quantity</span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <strong>Unit Price:</strong> 
+                                    <span class="text-success fw-bold fs-5">$@Model.Price.ToString("F2")</span>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <strong>Total:</strong> 
+                                    <span class="text-success fw-bold fs-4">$@((Model.Price * Model.Quantity).ToString("F2"))</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cache Operations Timeline -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">🔄 Redis Cache Operations Timeline</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker bg-success">1</div>
+                                    <div class="timeline-content">
+                                        <strong>Product Validation</strong>
+                                        <small class="text-muted d-block">Verified product details from database</small>
+                                        <span class="badge bg-success">COMPLETED</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item completed" id="cacheWriteStep">
+                                    <div class="timeline-marker bg-success">2</div>
+                                    <div class="timeline-content">
+                                        <strong>Redis Cache Write</strong>
+                                        <small class="text-muted d-block">Storing cart item in Redis Hash</small>
+                                        <span class="badge bg-success">COMPLETED</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item active" id="cacheSyncStep">
+                                    <div class="timeline-marker bg-primary">3</div>
+                                    <div class="timeline-content">
+                                        <strong>Cache Synchronization</strong>
+                                        <small class="text-muted d-block">Updating cart totals and metadata</small>
+                                        <span class="badge bg-primary" id="syncStatus">PROCESSING</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" id="confirmationStep">
+                                    <div class="timeline-marker bg-secondary">4</div>
+                                    <div class="timeline-content">
+                                        <strong>Operation Complete</strong>
+                                        <small class="text-muted d-block">Ready for next action</small>
+                                        <span class="badge bg-secondary">PENDING</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redis Cache Information -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h6 class="mb-0">📊 Redis Cache Information</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table table-sm table-borderless">
+                                        <tr>
+                                            <td><strong>Redis Key:</strong></td>
+                                            <td><code>cart:user:1</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Operation Type:</strong></td>
+                                            <td><span class="badge bg-success">HSET</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Data Type:</strong></td>
+                                            <td><span class="badge bg-info">Hash</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="table table-sm table-borderless">
+                                        <tr>
+                                            <td><strong>Product ID:</strong></td>
+                                            <td>@Model.ProductId</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Storage Size:</strong></td>
+                                            <td><span id="storageSize">~256 bytes</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>TTL:</strong></td>
+                                            <td>24 hours</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Live Cache Metrics -->
+                            <div class="mt-3 p-3 bg-light rounded">
+                                <h6>Live Cache Performance</h6>
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="fw-bold text-primary" id="responseTime">--</div>
+                                        <small class="text-muted">Response Time</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="fw-bold text-success" id="cacheHits">1</div>
+                                        <small class="text-muted">Cache Hits</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="fw-bold text-info" id="operationCount">1</div>
+                                        <small class="text-muted">Operations</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-2">
+                            <a href="@Url.Action("Index", "Cart")" class="btn btn-primary btn-lg w-100" id="viewCartBtn">
+                                <span id="viewCartText">🛒 View Cart</span>
+                                <span class="spinner-border spinner-border-sm d-none" id="viewCartSpinner"></span>
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary btn-lg w-100">
+                                ← Continue Shopping
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <button class="btn btn-success btn-lg w-100" onclick="addAnotherItem()" id="addAnotherBtn">
+                                ➕ Add Another
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="text-center mt-4">
+                        <small class="text-muted">
+                            🔄 Cart data is now persisted in Redis cache with real-time synchronization
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cache Operations Log -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6 class="mb-0">📝 Detailed Cache Operations Log</h6>
+                </div>
+                <div class="card-body">
+                    <div class="border rounded p-3 bg-light" style="max-height: 200px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 0.8rem;" id="detailedOperationsLog">
+                        <div class="text-success">[<span id="logTimestamp">@DateTime.Now.ToString("HH:mm:ss.fff")</span>] WRITE: Initializing cart operation...</div>
+                        <div class="text-success">[<span id="logTimestamp2">@DateTime.Now.ToString("HH:mm:ss.fff")</span>] READ: Validating product @Model.ProductId...</div>
+                        <div class="text-success">[<span id="logTimestamp3">@DateTime.Now.ToString("HH:mm:ss.fff")</span>] WRITE: Storing item in Redis Hash (cart:user:1)...</div>
+                        <div class="text-primary">[<span id="logTimestamp4">@DateTime.Now.ToString("HH:mm:ss.fff")</span>] UPDATE: Calculating cart totals...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Cache operation tracking
+        let operationCount = 1;
+        let cacheHits = 1;
+        let startTime = performance.now();
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCacheOperations();
+            startCacheAnimation();
+            updateLiveMetrics();
+        });
+
+        // Initialize cache operations
+        function initializeCacheOperations() {
+            // Simulate cache operations sequence
+            setTimeout(() => {
+                updateCacheOperationStatus('Writing item data to Redis Hash...', 'success');
+                document.getElementById('cacheWriteStep').className = 'timeline-item completed';
+            }, 800);
+
+            setTimeout(() => {
+                updateCacheOperationStatus('Synchronizing cart metadata...', 'primary');
+                document.getElementById('cacheSyncStep').className = 'timeline-item completed';
+                document.querySelector('#cacheSyncStep .badge').textContent = 'COMPLETED';
+                document.querySelector('#cacheSyncStep .badge').className = 'badge bg-success';
+            }, 1500);
+
+            setTimeout(() => {
+                updateCacheOperationStatus('Operation completed successfully!', 'success');
+                document.getElementById('confirmationStep').className = 'timeline-item completed';
+                document.querySelector('#confirmationStep .badge').textContent = 'COMPLETED';
+                document.querySelector('#confirmationStep .badge').className = 'badge bg-success';
+                
+                // Enable view cart button
+                document.getElementById('viewCartBtn').classList.remove('disabled');
+            }, 2200);
+
+            // Start live metrics updates
+            setInterval(updateLiveMetrics, 1000);
+        }
+
+        // Start cache animation
+        function startCacheAnimation() {
+            const operationLog = document.getElementById('detailedOperationsLog');
+            
+            // Add ongoing operations
+            setInterval(() => {
+                const timestamp = new Date().toLocaleTimeString() + '.' + new Date().getMilliseconds().toString().padStart(3, '0');
+                const operations = [
+                    { type: 'READ', message: 'Background cache health check...', color: 'text-primary' },
+                    { type: 'WRITE', message: 'Auto-saving cart state...', color: 'text-success' },
+                    { type: 'UPDATE', message: 'Updating cache statistics...', color: 'text-warning' }
+                ];
+                
+                const randomOp = operations[Math.floor(Math.random() * operations.length)];
+                const logEntry = document.createElement('div');
+                logEntry.className = randomOp.color;
+                logEntry.innerHTML = `[${timestamp}] ${randomOp.type}: ${randomOp.message}`;
+                
+                operationLog.appendChild(logEntry);
+                operationLog.scrollTop = operationLog.scrollHeight;
+                
+                operationCount++;
+                cacheHits++;
+                
+                // Keep only last 15 entries
+                while (operationLog.children.length > 15) {
+                    operationLog.removeChild(operationLog.firstChild);
+                }
+            }, 3000);
+        }
+
+        // Update cache operation status
+        function updateCacheOperationStatus(message, type) {
+            const statusElement = document.getElementById('cacheOperationStatus');
+            const badgeElement = document.getElementById('cacheOperationBadge');
+            
+            statusElement.textContent = message;
+            
+            const typeClasses = {
+                'success': 'alert-success',
+                'primary': 'alert-primary', 
+                'warning': 'alert-warning',
+                'danger': 'alert-danger'
+            };
+            
+            const badgeClasses = {
+                'success': 'bg-success',
+                'primary': 'bg-primary',
+                'warning': 'bg-warning', 
+                'danger': 'bg-danger'
+            };
+            
+            document.querySelector('.alert').className = `alert ${typeClasses[type]} mb-4`;
+            badgeElement.className = `badge ${badgeClasses[type]}`;
+        }
+
+        // Update live metrics
+        function updateLiveMetrics() {
+            const currentTime = performance.now();
+            const responseTime = Math.round(currentTime - startTime);
+            
+            document.getElementById('responseTime').textContent = responseTime + 'ms';
+            document.getElementById('cacheHits').textContent = cacheHits;
+            document.getElementById('operationCount').textContent = operationCount;
+            
+            // Update storage size based on operations
+            const storageSize = 256 + (operationCount * 8);
+            document.getElementById('storageSize').textContent = `~${storageSize} bytes`;
+        }
+
+        // Add another item function
+        function addAnotherItem() {
+            const btn = document.getElementById('addAnotherBtn');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '⏳ Adding...';
+            btn.disabled = true;
+            
+            // Simulate API call to add another item
+            setTimeout(() => {
+                // In a real application, this would make an API call
+                // For demo, we'll just show success and redirect
+                updateCacheOperationStatus('Adding another item to cart...', 'primary');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    
+                    // Show success message
+                    const currentQuantity = parseInt(document.getElementById('quantityDisplay').textContent);
+                    document.getElementById('quantityDisplay').textContent = currentQuantity + 1;
+                    
+                    updateCacheOperationStatus('Additional item added successfully!', 'success');
+                    addToOperationsLog('WRITE', 'Added additional quantity to existing cart item');
+                }, 1000);
+            }, 500);
+        }
+
+        // Add to operations log
+        function addToOperationsLog(operation, message) {
+            const log = document.getElementById('detailedOperationsLog');
+            const timestamp = new Date().toLocaleTimeString() + '.' + new Date().getMilliseconds().toString().padStart(3, '0');
+            const logEntry = document.createElement('div');
+            
+            let colorClass = 'text-primary';
+            if (operation === 'WRITE') colorClass = 'text-success';
+            if (operation === 'UPDATE') colorClass = 'text-warning';
+            if (operation === 'DELETE') colorClass = 'text-danger';
+            
+            logEntry.className = colorClass;
+            logEntry.innerHTML = `[${timestamp}] ${operation}: ${message}`;
+            
+            log.appendChild(logEntry);
+            log.scrollTop = log.scrollHeight;
+            
+            operationCount++;
+            if (operation === 'READ') cacheHits++;
+        }
+
+        // Enhanced view cart button
+        document.getElementById('viewCartBtn').addEventListener('click', function(e) {
+            if (this.classList.contains('disabled')) {
+                e.preventDefault();
+                return;
+            }
+            
+            const spinner = document.getElementById('viewCartSpinner');
+            const text = document.getElementById('viewCartText');
+            
+            spinner.classList.remove('d-none');
+            text.textContent = 'Loading Cart...';
+            
+            // Add cache operation for navigation
+            addToOperationsLog('READ', 'Navigating to cart page - Loading cart data from Redis');
+        });
+
+        // Auto-redirect after delay (optional)
+        setTimeout(() => {
+            // Uncomment to enable auto-redirect
+            // window.location.href = '@Url.Action("Index", "Cart")';
+        }, 10000);
+
+        // Cache health monitoring
+        function monitorCacheHealth() {
+            setInterval(() => {
+                const isHealthy = Math.random() > 0.1; // 90% healthy
+                if (!isHealthy) {
+                    addToOperationsLog('ERROR', 'Temporary cache connectivity issue - using fallback');
+                    updateCacheOperationStatus('Cache connectivity issue detected', 'warning');
+                } else {
+                    addToOperationsLog('READ', 'Cache health check passed');
+                }
+            }, 8000);
+        }
+
+        // Start cache health monitoring
+        monitorCacheHealth();
+    </script>
+
+    <style>
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -30px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .timeline-content {
+            padding: 10px;
+            border-radius: 5px;
+            background: #f8f9fa;
+        }
+
+        .timeline-item.completed .timeline-content {
+            background: #d1edff;
+            border-left: 3px solid #007bff;
+        }
+
+        .timeline-item.active .timeline-content {
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+        }
+
+        /* Product Icon Animation */
+        .product-icon {
+            animation: bounce 2s infinite;
+        }
+
+        /* Cache Operation Animations */
+        .cache-operation {
+            transition: all 0.3s ease;
+        }
+
+        /* Button Styles */
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Alert Styles */
+        .alert {
+            border: none;
+            border-left: 4px solid;
+        }
+
+        /* Animations */
+        <text>
+        @@keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        @@keyframes pulse {
+            0% {transform: scale(1);}
+            50% {transform: scale(1.05);}
+            100% {transform: scale(1);}
+        }
+
+        @@keyframes highlight {
+            0% {background-color: rgba(40, 167, 69, 0.1);}
+            100% {background-color: transparent;}
+        }
+        </text>
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .highlight {
+            animation: highlight 1s ease;
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .card-body {
+                padding: 1.5rem !important;
+            }
+            
+            .btn-lg {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-marker {
+                left: -20px;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                font-size: 10px;
+            }
+        }
+
+        /* Code Display */
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        /* Badge Styles */
+        .badge {
+            font-size: 0.75em;
+        }
+
+        /* Log Styles */
+        #detailedOperationsLog {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            border: 1px solid #333;
+        }
+
+        #detailedOperationsLog div {
+            padding: 2px 5px;
+            border-bottom: 1px solid #333;
+            font-family: 'Courier New', monospace;
+        }
+
+        #detailedOperationsLog div:last-child {
+            border-bottom: none;
+        }
+
+        .text-success { color: #4ec9b0 !important; }
+        .text-primary { color: #569cd6 !important; }
+        .text-warning { color: #ffc107 !important; }
+        .text-danger { color: #f44747 !important; }
+    </style>
+}

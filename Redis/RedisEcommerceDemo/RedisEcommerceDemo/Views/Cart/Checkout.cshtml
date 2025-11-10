@@ -1,0 +1,696 @@
+﻿@model ShoppingCart
+@{
+    ViewData["Title"] = "Checkout - Redis E-Commerce";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Cache Status for Checkout -->
+            <div class="alert alert-warning mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>⚡ Checkout Cache Status:</strong>
+                        <span id="checkoutCacheStatus">Validating cart data in Redis...</span>
+                    </div>
+                    <button class="btn btn-sm btn-outline-warning" onclick="validateCartCache()">
+                        🔍 Validate Cache
+                    </button>
+                </div>
+            </div>
+
+            <!-- Checkout Progress with Cache Indicators -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="text-center flex-fill">
+                            <div class="btn btn-success rounded-circle mb-2 cache-step" data-step="1">1</div>
+                            <div class="small">Cart Review</div>
+                            <small class="text-success cache-status" data-step="1">✅ Cached</small>
+                        </div>
+                        <div class="flex-fill">
+                            <div class="progress" style="height: 2px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="text-center flex-fill">
+                            <div class="btn btn-success rounded-circle mb-2 cache-step" data-step="2">2</div>
+                            <div class="small">Information</div>
+                            <small class="text-warning cache-status" data-step="2">🔄 Processing</small>
+                        </div>
+                        <div class="flex-fill">
+                            <div class="progress" style="height: 2px;">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="text-center flex-fill">
+                            <div class="btn btn-outline-secondary rounded-circle mb-2 cache-step" data-step="3">3</div>
+                            <div class="small">Payment</div>
+                            <small class="text-muted cache-status" data-step="3">⏳ Waiting</small>
+                        </div>
+                        <div class="flex-fill">
+                            <div class="progress" style="height: 2px;">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="text-center flex-fill">
+                            <div class="btn btn-outline-secondary rounded-circle mb-2 cache-step" data-step="4">4</div>
+                            <div class="small">Confirmation</div>
+                            <small class="text-muted cache-status" data-step="4">⏳ Waiting</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Header -->
+            <div class="text-center mb-5">
+                <h1 class="display-6">🔐 Checkout</h1>
+                <p class="lead text-muted">Complete your purchase with secure Redis-powered checkout</p>
+                
+                <!-- Cache Performance Info -->
+                <div class="row justify-content-center mt-3">
+                    <div class="col-auto">
+                        <span class="badge bg-info me-2">
+                            <span id="cacheResponseTime">--</span>ms response
+                        </span>
+                        <span class="badge bg-success">
+                            <span id="cacheHitCount">0</span> cache hits
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            @if (!Model.Items.Any())
+            {
+                <!-- Empty Cart State -->
+                <div class="text-center py-5">
+                    <div class="empty-cart-icon mb-4" style="font-size: 4rem;">🛒</div>
+                    <h3 class="text-muted mb-3">Your cart is empty</h3>
+                    <p class="text-muted mb-4">You need to add items to your cart before proceeding to checkout.</p>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-lg">
+                        🏠 Start Shopping
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    <!-- Checkout Form -->
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">📋 Customer Information</h5>
+                                    <span class="badge bg-success cache-badge" id="formCacheStatus">Data Cached</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form id="checkoutForm" onsubmit="logCheckoutCacheOperation('WRITE', 'Saving checkout data to cache...')">
+                                    <!-- Contact Information -->
+                                    <div class="mb-4">
+                                        <h6 class="border-bottom pb-2">
+                                            Contact Information
+                                            <small class="text-success float-end" id="contactCacheStatus">✅</small>
+                                        </h6>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">First Name *</label>
+                                                <input type="text" class="form-control" value="Demo" required
+                                                       onchange="logCheckoutCacheOperation('UPDATE', 'Updating contact info in cache...')">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">Last Name *</label>
+                                                <input type="text" class="form-control" value="User" required
+                                                       onchange="logCheckoutCacheOperation('UPDATE', 'Updating contact info in cache...')">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Email Address *</label>
+                                            <input type="email" class="form-control" value="demo@redisecommerce.com" required
+                                                   onchange="logCheckoutCacheOperation('UPDATE', 'Updating email in cache...')">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" value="+1 (555) 123-4567"
+                                                   onchange="logCheckoutCacheOperation('UPDATE', 'Updating phone in cache...')">
+                                        </div>
+                                    </div>
+
+                                    <!-- Shipping Address -->
+                                    <div class="mb-4">
+                                        <h6 class="border-bottom pb-2">
+                                            🚚 Shipping Address
+                                            <small class="text-warning float-end" id="shippingCacheStatus">🔄</small>
+                                        </h6>
+                                        <div class="mb-3">
+                                            <label class="form-label">Street Address *</label>
+                                            <input type="text" class="form-control" value="123 Redis Street" required
+                                                   onchange="updateShippingCacheStatus()">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">City *</label>
+                                                <input type="text" class="form-control" value="Cache City" required
+                                                       onchange="updateShippingCacheStatus()">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">State/Province *</label>
+                                                <input type="text" class="form-control" value="Digital State" required
+                                                       onchange="updateShippingCacheStatus()">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">ZIP/Postal Code *</label>
+                                                <input type="text" class="form-control" value="12345" required
+                                                       onchange="updateShippingCacheStatus()">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">Country *</label>
+                                                <select class="form-select" required onchange="updateShippingCacheStatus()">
+                                                    <option selected>United States</option>
+                                                    <option>Canada</option>
+                                                    <option>United Kingdom</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Shipping Method -->
+                                    <div class="mb-4">
+                                        <h6 class="border-bottom pb-2">📦 Shipping Method</h6>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="shippingMethod" id="standard" checked>
+                                            <label class="form-check-label w-100" for="standard">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>Standard Shipping</span>
+                                                    <span class="text-success">FREE</span>
+                                                </div>
+                                                <small class="text-muted">5-7 business days</small>
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="shippingMethod" id="express">
+                                            <label class="form-check-label w-100" for="express">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>Express Shipping</span>
+                                                    <span class="text-success">$9.99</span>
+                                                </div>
+                                                <small class="text-muted">2-3 business days</small>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="shippingMethod" id="overnight">
+                                            <label class="form-check-label w-100" for="overnight">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>Overnight Shipping</span>
+                                                    <span class="text-success">$19.99</span>
+                                                </div>
+                                                <small class="text-muted">Next business day</small>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Payment Method -->
+                                    <div class="mb-4">
+                                        <h6 class="border-bottom pb-2">
+                                            💳 Payment Method
+                                            <small class="text-muted float-end" id="paymentCacheStatus">⏳</small>
+                                        </h6>
+                                        <div class="alert alert-info">
+                                            <small>
+                                                <strong>Cache Demo:</strong> Payment data would be securely cached with encryption in production.
+                                            </small>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                                            <label class="form-check-label" for="creditCard">
+                                                Credit/Debit Card
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                                            <label class="form-check-label" for="paypal">
+                                                PayPal
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="applePay">
+                                            <label class="form-check-label" for="applePay">
+                                                Apple Pay
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Details -->
+                                    <div id="cardDetails">
+                                        <div class="row">
+                                            <div class="col-12 mb-3">
+                                                <label class="form-label">Card Number *</label>
+                                                <input type="text" class="form-control" value="4242 4242 4242 4242" placeholder="1234 5678 9012 3456" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">Expiration Date *</label>
+                                                <input type="text" class="form-control" value="12/28" placeholder="MM/YY" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">CVV *</label>
+                                                <input type="text" class="form-control" value="123" placeholder="123" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Cardholder Name *</label>
+                                            <input type="text" class="form-control" value="Demo User" required>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Cache Operations Log for Checkout -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h6 class="mb-0">📝 Checkout Cache Operations</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="border rounded p-2 bg-light" style="max-height: 120px; overflow-y: auto; font-family: monospace; font-size: 0.8rem;" id="checkoutOperationsLog">
+                                    <div class="text-muted">Checkout cache operations will appear here...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary with Cache Info -->
+                    <div class="col-lg-4">
+                        <div class="card sticky-top" style="top: 20px;">
+                            <div class="card-header bg-light">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">📦 Order Summary</h5>
+                                    <span class="badge bg-primary" id="cartCacheStatus">Live</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- Cart Items with Cache Indicators -->
+                                <div class="mb-3">
+                                    <h6>Cart Items <small class="text-success">(Cached in Redis)</small></h6>
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <div class="d-flex justify-content-between align-items-start mb-2 pb-2 border-bottom">
+                                            <div class="flex-grow-1">
+                                                <div class="fw-bold small">@item.ProductName</div>
+                                                <div class="text-muted small">
+                                                    Qty: @item.Quantity × $@item.Price.ToString("F2")
+                                                    <span class="text-success ms-1 cache-indicator" data-product="@item.ProductId">✅</span>
+                                                </div>
+                                            </div>
+                                            <div class="text-end">
+                                                <div class="fw-bold">$@((item.Price * item.Quantity).ToString("F2"))</div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                                <!-- Price Breakdown -->
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Subtotal</span>
+                                        <span>$@Model.TotalAmount.ToString("F2")</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Shipping</span>
+                                        <span class="text-success">FREE</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Tax</span>
+                                        <span>$@((Model.TotalAmount * 0.08m).ToString("F2"))</span>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between fw-bold fs-5">
+                                        <span>Total</span>
+                                        <span class="text-success">$@((Model.TotalAmount * 1.08m).ToString("F2"))</span>
+                                    </div>
+                                </div>
+
+                                <!-- Checkout Button with Cache Validation -->
+                                <button type="button" class="btn btn-success btn-lg w-100 mb-3" onclick="processOrderWithCache()">
+                                    <span id="orderText">🚀 Place Order</span>
+                                    <span id="orderSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+                                </button>
+
+                                <!-- Cache Security Info -->
+                                <div class="text-center">
+                                    <small class="text-muted d-block mb-2">Secure cache operations</small>
+                                    <div class="d-flex justify-content-center gap-1 mb-2">
+                                        <span class="badge bg-success">Redis</span>
+                                        <span class="badge bg-info">TLS</span>
+                                        <span class="badge bg-warning">LRU</span>
+                                    </div>
+                                    <small class="text-muted">
+                                        🔒 Cart data securely cached with 24h TTL
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Redis Checkout Information -->
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h6 class="card-title">🛒 Checkout Cache Info</h6>
+                                <div class="small">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Redis Key:</span>
+                                        <code>cart:user:@Model.UserId</code>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Cache Hits:</span>
+                                        <span class="badge bg-success" id="liveCacheHits">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Last Sync:</span>
+                                        <small id="lastCacheSync">@DateTime.Now.ToString("HH:mm:ss")</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span>Status:</span>
+                                        <span class="badge bg-success" id="cacheHealth">Healthy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Checkout-specific cache operations
+        let checkoutCacheOps = 0;
+        let cacheHitCount = 0;
+
+        // Initialize checkout cache monitoring
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCheckoutCache();
+            startCheckoutCacheMonitoring();
+            validateCartCache();
+            
+            // Payment method toggle
+            const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    if (this.id === 'creditCard') {
+                        document.getElementById('cardDetails').style.display = 'block';
+                    } else {
+                        document.getElementById('cardDetails').style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Initialize checkout cache
+        function initializeCheckoutCache() {
+            logCheckoutCacheOperation('READ', 'Loading checkout data from cache...');
+            
+            // Simulate cache validation
+            setTimeout(() => {
+                updateCacheStep(1, 'success');
+                document.getElementById('checkoutCacheStatus').textContent = '✅ Cart data validated in Redis';
+                document.getElementById('checkoutCacheStatus').className = 'text-success';
+            }, 1000);
+        }
+
+        // Start cache monitoring for checkout
+        function startCheckoutCacheMonitoring() {
+            // Monitor form changes for cache updates
+            const formInputs = document.querySelectorAll('#checkoutForm input, #checkoutForm select');
+            formInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    cacheHitCount++;
+                    updateCacheMetrics();
+                });
+            });
+
+            // Periodic cache health checks
+            setInterval(() => {
+                validateCartCache();
+            }, 5000);
+        }
+
+        // Validate cart cache
+        async function validateCartCache() {
+            try {
+                const startTime = performance.now();
+                const response = await fetch('/api/cart/summary');
+                const data = await response.json();
+                const endTime = performance.now();
+                
+                const responseTime = Math.round(endTime - startTime);
+                document.getElementById('cacheResponseTime').textContent = responseTime;
+                
+                if (data.Success) {
+                    updateCacheHealth('Healthy', 'success');
+                    document.getElementById('lastCacheSync').textContent = new Date().toLocaleTimeString();
+                } else {
+                    updateCacheHealth('Degraded', 'warning');
+                }
+            } catch (error) {
+                updateCacheHealth('Unavailable', 'danger');
+            }
+        }
+
+        // Update cache health display
+        function updateCacheHealth(status, type) {
+            const healthBadge = document.getElementById('cacheHealth');
+            healthBadge.textContent = status;
+            healthBadge.className = `badge bg-${type}`;
+        }
+
+        // Update cache metrics
+        function updateCacheMetrics() {
+            document.getElementById('cacheHitCount').textContent = cacheHitCount;
+            document.getElementById('liveCacheHits').textContent = cacheHitCount;
+        }
+
+        // Log checkout cache operations
+        function logCheckoutCacheOperation(operation, message) {
+            checkoutCacheOps++;
+            
+            const log = document.getElementById('checkoutOperationsLog');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            
+            let operationClass = 'text-primary';
+            let operationIcon = '📖';
+            
+            switch(operation) {
+                case 'WRITE':
+                    operationClass = 'text-success';
+                    operationIcon = '💾';
+                    break;
+                case 'UPDATE':
+                    operationClass = 'text-warning';
+                    operationIcon = '✏️';
+                    break;
+                case 'DELETE':
+                    operationClass = 'text-danger';
+                    operationIcon = '🗑️';
+                    break;
+            }
+            
+            logEntry.innerHTML = `
+                <span class="text-muted">[${timestamp}]</span>
+                <span class="${operationClass}">${operationIcon} ${operation}</span>
+                <span>${message}</span>
+            `;
+            
+            // Add to top of log
+            log.insertBefore(logEntry, log.firstChild);
+            
+            // Keep only last 8 entries
+            while (log.children.length > 8) {
+                log.removeChild(log.lastChild);
+            }
+        }
+
+        // Update cache step status
+        function updateCacheStep(step, status) {
+            const stepElement = document.querySelector(`.cache-step[data-step="${step}"]`);
+            const statusElement = document.querySelector(`.cache-status[data-step="${step}"]`);
+            
+            if (status === 'success') {
+                stepElement.className = 'btn btn-success rounded-circle mb-2 cache-step';
+                statusElement.className = 'text-success cache-status';
+                statusElement.textContent = '✅ Cached';
+            } else if (status === 'processing') {
+                stepElement.className = 'btn btn-warning rounded-circle mb-2 cache-step';
+                statusElement.className = 'text-warning cache-status';
+                statusElement.textContent = '🔄 Processing';
+            }
+        }
+
+        // Update shipping cache status
+        function updateShippingCacheStatus() {
+            const statusElement = document.getElementById('shippingCacheStatus');
+            statusElement.textContent = '✏️';
+            statusElement.className = 'text-warning float-end';
+            
+            setTimeout(() => {
+                statusElement.textContent = '✅';
+                statusElement.className = 'text-success float-end';
+            }, 500);
+        }
+
+        // Enhanced order processing with cache operations
+        function processOrderWithCache() {
+            logCheckoutCacheOperation('WRITE', 'Starting order processing with cache validation...');
+            
+            const orderBtn = document.querySelector('.btn-success');
+            const orderText = document.getElementById('orderText');
+            const orderSpinner = document.getElementById('orderSpinner');
+            
+            // Validate form
+            const form = document.getElementById('checkoutForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // Show loading state
+            orderText.textContent = 'Validating Cache...';
+            orderSpinner.classList.remove('d-none');
+            orderBtn.disabled = true;
+            
+            // Simulate cache operations during checkout
+            setTimeout(() => {
+                logCheckoutCacheOperation('READ', 'Validating cart integrity in Redis...');
+                updateCacheStep(2, 'success');
+                orderText.textContent = 'Processing Payment...';
+            }, 1000);
+            
+            setTimeout(() => {
+                logCheckoutCacheOperation('WRITE', 'Processing payment with cache...');
+                updateCacheStep(3, 'processing');
+                orderText.textContent = 'Creating Order...';
+            }, 2000);
+            
+            setTimeout(() => {
+                logCheckoutCacheOperation('DELETE', 'Clearing cart cache after successful order...');
+                updateCacheStep(4, 'success');
+                orderText.textContent = 'Finalizing...';
+                completeOrderProcessing();
+            }, 3000);
+        }
+
+        function completeOrderProcessing() {
+            // Create and submit form programmatically for checkout
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '@Url.Action("ProcessCheckout", "Cart")';
+            
+            // Add anti-forgery token
+            const token = document.querySelector('input[name="__RequestVerificationToken"]');
+            if (token) {
+                form.appendChild(token.cloneNode(true));
+            }
+            
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        // Cache performance simulation
+        function simulateCachePerformance() {
+            cacheHitCount++;
+            updateCacheMetrics();
+            
+            // Random cache operations during checkout
+            const operations = [
+                'READ',
+                'WRITE', 
+                'UPDATE'
+            ];
+            const randomOp = operations[Math.floor(Math.random() * operations.length)];
+            logCheckoutCacheOperation(randomOp, 'Background cache optimization...');
+        }
+
+        // Start background cache simulation
+        setInterval(simulateCachePerformance, 8000);
+    </script>
+
+    <style>
+        .cache-step {
+            transition: all 0.3s ease;
+        }
+        
+        .cache-status {
+            font-size: 0.7rem;
+        }
+        
+        .cache-badge {
+            font-size: 0.7rem;
+        }
+        
+        .cache-indicator {
+            font-size: 0.7rem;
+        }
+        
+        #checkoutOperationsLog {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        
+        #checkoutOperationsLog div {
+            padding: 2px 5px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        
+        #checkoutOperationsLog div:last-child {
+            border-bottom: none;
+        }
+        
+        .sticky-top {
+            z-index: 1020;
+        }
+        
+        /* Animation for cache updates - FIXED: Use <text> tag to escape Razor */
+        <text>
+        .cache-update {
+            animation: cachePulse 0.5s ease;
+        }
+        
+        @@keyframes cachePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        </text>
+
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .display-6 {
+                font-size: 1.5rem;
+            }
+            
+            .sticky-top {
+                position: static !important;
+            }
+            
+            .cache-step {
+                width: 30px !important;
+                height: 30px !important;
+                line-height: 30px !important;
+            }
+        }
+
+        /* Validation styles */
+        .is-valid {
+            border-color: #198754;
+        }
+        
+        .is-invalid {
+            border-color: #dc3545;
+        }
+    </style>
+}
