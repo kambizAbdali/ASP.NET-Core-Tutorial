@@ -1,0 +1,506 @@
+﻿@model ShoppingCart
+@{
+    ViewData["Title"] = "Shopping Cart - Redis E-Commerce";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <!-- Page Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="display-6">🛒 Shopping Cart</h1>
+                <div>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-primary me-2">
+                        ← Continue Shopping
+                    </a>
+                    @if (Model.Items.Any())
+                    {
+                        <form method="post" asp-action="ClearCart" class="d-inline">
+                            <button type="submit" class="btn btn-outline-danger" 
+                                    onclick="return confirm('Are you sure you want to clear your entire cart?')">
+                                🗑️ Clear Cart
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+
+            <!-- Alert Messages -->
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <span>✅ @TempData["Message"]</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span>❌ @TempData["Error"]</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <!-- Cart Items Section -->
+            @if (Model.Items.Any())
+            {
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-light">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5 class="card-title mb-0">
+                                    <i class="fas fa-shopping-cart"></i> Your Cart Items
+                                    <span class="badge bg-primary ms-2">@Model.Items.Count items</span>
+                                </h5>
+                            </div>
+                            <div class="col-auto">
+                                <small class="text-muted">Last updated: @Model.LastUpdated.ToString("MMM dd, yyyy HH:mm")</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col" class="ps-4">Product</th>
+                                        <th scope="col" class="text-center">Unit Price</th>
+                                        <th scope="col" class="text-center">Quantity</th>
+                                        <th scope="col" class="text-center">Total</th>
+                                        <th scope="col" class="text-center pe-4">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <tr>
+                                            <td class="ps-4">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0">
+                                                        <div class="bg-light rounded-2 d-flex align-items-center justify-content-center" 
+                                                             style="width: 60px; height: 60px;">
+                                                            <span class="text-muted">📦</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h6 class="mb-1">@item.ProductName</h6>
+                                                        <small class="text-muted">Product ID: @item.ProductId</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <span class="fw-bold text-success">$@item.Price.ToString("F2")</span>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <form method="post" asp-action="UpdateQuantity" class="d-flex align-items-center">
+                                                        <input type="hidden" name="productId" value="@item.ProductId" />
+                                                        <div class="input-group input-group-sm" style="width: 140px;">
+                                                            <button type="submit" name="quantity" value="@(item.Quantity - 1)" 
+                                                                    class="btn btn-outline-secondary" 
+                                                                    @(item.Quantity <= 1 ? "disabled" : "")>
+                                                                −
+                                                            </button>
+                                                            <input type="number" name="quantity" value="@item.Quantity" 
+                                                                   min="1" max="99" class="form-control text-center" 
+                                                                   onchange="this.form.submit()" />
+                                                            <button type="submit" name="quantity" value="@(item.Quantity + 1)" 
+                                                                    class="btn btn-outline-secondary">
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <span class="fw-bold text-primary">$@((item.Price * item.Quantity).ToString("F2"))</span>
+                                            </td>
+                                            <td class="text-center align-middle pe-4">
+                                                <form method="post" asp-action="RemoveFromCart" class="d-inline">
+                                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm" 
+                                                            onclick="return confirm('Remove @item.ProductName from cart?')">
+                                                        🗑️ Remove
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <td colspan="3" class="text-end fw-bold ps-4">Subtotal:</td>
+                                        <td class="text-center fw-bold text-primary">$@Model.TotalAmount.ToString("F2")</td>
+                                        <td class="pe-4"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" class="text-end fw-bold ps-4">Shipping:</td>
+                                        <td class="text-center fw-bold text-muted">$0.00</td>
+                                        <td class="pe-4"></td>
+                                    </tr>
+                                    <tr class="table-active">
+                                        <td colspan="3" class="text-end fw-bold fs-5 ps-4">Total Amount:</td>
+                                        <td class="text-center fw-bold fs-5 text-success">$@Model.TotalAmount.ToString("F2")</td>
+                                        <td class="pe-4"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="d-flex gap-2">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-lg btn-outline-primary">
+                                ← Continue Shopping
+                            </a>
+                            <form method="post" asp-action="ClearCart" class="d-inline">
+                                <button type="submit" class="btn btn-lg btn-outline-danger" 
+                                        onclick="return confirm('Are you sure you want to clear your entire cart? This action cannot be undone.')">
+                                    🗑️ Clear Entire Cart
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#checkoutModal">
+                                🚀 Proceed to Checkout
+                            </button>
+                            <small class="text-muted">Secure checkout powered by Redis</small>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <!-- Empty Cart State -->
+                <div class="text-center py-5">
+                    <div class="empty-cart-icon mb-4" style="font-size: 4rem;">🛒</div>
+                    <h3 class="text-muted mb-3">Your cart is empty</h3>
+                    <p class="text-muted mb-4">Looks like you haven't added any items to your cart yet.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-lg">
+                            🏠 Start Shopping
+                        </a>
+                        <a href="@Url.Action("RedisDemo", "Home")" class="btn btn-outline-secondary btn-lg">
+                            🔧 Redis Demo
+                        </a>
+                    </div>
+                </div>
+            }
+
+            <!-- Redis Information Card -->
+            <div class="card mt-5">
+                <div class="card-header bg-dark text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">
+                            <i class="fas fa-database"></i> Redis Cart Storage Information
+                        </h6>
+                        <span class="badge bg-success">Active</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-sm table-borderless">
+                                <tr>
+                                    <td><strong>Redis Key:</strong></td>
+                                    <td><code>cart:user:@Model.UserId</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Storage Type:</strong></td>
+                                    <td><span class="badge bg-info">Hash</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Last Updated:</strong></td>
+                                    <td>@Model.LastUpdated.ToString("yyyy-MM-dd HH:mm:ss UTC")</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-sm table-borderless">
+                                <tr>
+                                    <td><strong>Items Count:</strong></td>
+                                    <td><span class="badge bg-primary">@Model.Items.Count</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Value:</strong></td>
+                                    <td><span class="badge bg-success">$@Model.TotalAmount.ToString("F2")</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>User ID:</strong></td>
+                                    <td>@Model.UserId (Demo User)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="mt-3 p-3 bg-light rounded">
+                        <small class="text-muted">
+                            <strong>Note:</strong> This shopping cart is stored in Redis for fast access and scalability. 
+                            The data persists until manually cleared or the cache expires.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Add Demo Products -->
+            @if (!Model.Items.Any())
+            {
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h6 class="mb-0">💡 Quick Demo - Add Sample Products</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3">Try adding some demo products to test the Redis cart functionality:</p>
+                        <div class="row g-2">
+                            @{
+                                var demoProducts = new[]
+                                {
+                                    new { Id = 1, Name = "Laptop Gaming Pro", Price = 1500.00m },
+                                    new { Id = 2, Name = "Wireless Headphones", Price = 200.00m },
+                                    new { Id = 3, Name = "Smartphone X", Price = 800.00m }
+                                };
+                            }
+                            @foreach (var product in demoProducts)
+                            {
+                                <div class="col-md-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">@product.Name</h6>
+                                            <p class="card-text text-success">$@product.Price.ToString("F2")</p>
+                                            <form method="post" asp-action="AddToCart">
+                                                <input type="hidden" name="productId" value="@product.Id" />
+                                                <input type="hidden" name="quantity" value="1" />
+                                                <button type="submit" class="btn btn-sm btn-outline-primary w-100">
+                                                    ➕ Add to Cart
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Checkout Modal -->
+@if (Model.Items.Any())
+{
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="checkoutModalLabel">
+                        🎉 Ready to Checkout!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Order Summary</h6>
+                            <div class="border rounded p-3">
+                                @foreach (var item in Model.Items)
+                                {
+                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom">
+                                        <div>
+                                            <small class="fw-bold">@item.ProductName</small>
+                                            <br>
+                                            <small class="text-muted">Qty: @item.Quantity × $@item.Price.ToString("F2")</small>
+                                        </div>
+                                        <small class="fw-bold">$@((item.Price * item.Quantity).ToString("F2"))</small>
+                                    </div>
+                                }
+                                <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                    <strong>Total:</strong>
+                                    <strong class="text-success">$@Model.TotalAmount.ToString("F2")</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Checkout Information</h6>
+                            <div class="alert alert-info">
+                                <small>
+                                    <strong>Demo Notice:</strong> This is a demonstration of Redis-powered cart functionality. 
+                                    In a real application, this would integrate with payment processors and order management systems.
+                                </small>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" placeholder="your@email.com" value="demo@redisecommerce.com">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Shipping Address</label>
+                                <textarea class="form-control" rows="2" placeholder="Enter your shipping address">123 Redis Street, Cache City</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                    <button type="button" class="btn btn-success" onclick="processCheckout()">
+                        <span id="checkoutText">🚀 Complete Purchase</span>
+                        <span id="checkoutSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        // Checkout processing simulation
+        function processCheckout() {
+            const checkoutBtn = document.querySelector('.btn-success');
+            const checkoutText = document.getElementById('checkoutText');
+            const checkoutSpinner = document.getElementById('checkoutSpinner');
+            
+            // Show loading state
+            checkoutText.textContent = 'Processing...';
+            checkoutSpinner.classList.remove('d-none');
+            checkoutBtn.disabled = true;
+            
+            // Simulate API call to process checkout
+            setTimeout(() => {
+                // Show success message
+                alert('🎉 Order placed successfully! Thank you for your purchase.\n\nThis demo showcases Redis cart functionality. In production, this would process real payments.');
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
+                modal.hide();
+                
+                // Redirect to home page
+                window.location.href = '@Url.Action("Index", "Home")';
+            }, 2000);
+        }
+
+        // Auto-update quantity when input changes (with debounce)
+        let updateTimeout;
+        function setupQuantityUpdates() {
+            const quantityInputs = document.querySelectorAll('input[name="quantity"]');
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    clearTimeout(updateTimeout);
+                    updateTimeout = setTimeout(() => {
+                        this.form.submit();
+                    }, 500);
+                });
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setupQuantityUpdates();
+            
+            // Show toast notification if coming from add to cart action
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('added')) {
+                showToast('Product added to cart!', 'success');
+            }
+        });
+
+        // Toast notification function
+        function showToast(message, type = 'info') {
+            // Simple toast implementation
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            toast.style.cssText = 'top: 20px; right: 20px; z-index: 1060; min-width: 300px;';
+            toast.innerHTML = `
+                <span>${message}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.appendChild(toast);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 3000);
+        }
+
+        // Real-time cart total update (demo)
+        function updateCartTotal() {
+            // This would typically make an API call to get updated cart total
+            console.log('Cart total would be updated here via Redis');
+        }
+    </script>
+
+    <style>
+        .cache-indicator {
+            transition: all 0.3s ease;
+        }
+        
+        .cache-status .spinner-border {
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+        
+        #operationsLog {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        
+        #operationsLog div {
+            padding: 2px 5px;
+            border-bottom: 1px solid #f1f1f1;
+            transition: background-color 0.3s ease;
+        }
+        
+        #operationsLog div:last-child {
+            border-bottom: none;
+        }
+        
+        .empty-cart-icon {
+            opacity: 0.5;
+        }
+        
+        .table tbody tr:hover {
+            background-color: rgba(0, 123, 255, 0.05);
+        }
+        
+        /* Animation for cache operations - FIXED: Use <text> tag */
+        <text>
+        @@keyframes highlightOperation {
+            0% { background-color: rgba(40, 167, 69, 0.2); }
+            100% { background-color: transparent; }
+        }
+        
+        .cache-operation {
+            animation: highlightOperation 2s ease;
+        }
+        </text>
+        
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .table-responsive {
+                font-size: 0.875rem;
+            }
+            
+            .btn-lg {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .display-6 {
+                font-size: 1.5rem;
+            }
+            
+            #cacheOperationsPanel .row {
+                margin: 0 -5px;
+            }
+            
+            #cacheOperationsPanel .col-md-3 {
+                padding: 0 5px;
+            }
+        }
+    </style>
+}

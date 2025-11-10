@@ -1,0 +1,154 @@
+﻿@model HomePageViewModel
+@{
+    ViewData["Title"] = "Redis E-Commerce Demo";
+}
+
+<div class="container">
+    <!-- Cache Information Banner -->
+    <div class="alert alert-info mb-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <strong>Data Source:</strong> <span class="badge bg-@(Model.DataSource == "cache" ? "success" : "warning")">@Model.DataSource</span>
+                <strong>| Cached At:</strong> @Model.CacheTimestamp.ToString("yyyy-MM-dd HH:mm:ss UTC")
+            </div>
+            <form method="post" asp-action="ClearHomePageCache" class="d-inline">
+                <button type="submit" class="btn btn-warning btn-sm">Clear Cache</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Display Messages -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    <div class="row">
+        <!-- Featured Products -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5>Featured Products</h5>
+                </div>
+<div class="card-body">
+    @foreach (var product in Model.BestSellingProducts)
+    {
+        <div class="card mb-2">
+            <div class="card-body">
+                <h6 class="card-title">@product.Name</h6>
+                <p class="card-text">$@product.Price</p>
+                <p class="card-text"><small class="text-muted">In stock: @product.StockQuantity</small></p>
+                <a href="@Url.Action("Product", new { id = product.Id })" class="btn btn-primary btn-sm">View Details</a>
+                
+                <!-- FIXED: AddToCart form -->
+                <form method="post" asp-action="AddToCart" asp-controller="Cart" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="ProductId" value="@product.Id" />
+                    <input type="hidden" name="Quantity" value="1" />
+                    <input type="hidden" name="ReturnUrl" value="@Context.Request.Path" />
+                    <button type="submit" class="btn btn-success btn-sm"
+                            onclick="logCacheOperation('WRITE', 'Adding @product.Name to Redis cart...')">
+                        Add to Cart
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+            </div>
+        </div>
+
+        <!-- Best Selling Products -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5>Best Sellers</h5>
+                </div>
+                <div class="card-body">
+                    @foreach (var product in Model.BestSellingProducts)
+                    {
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <h6 class="card-title">@product.Name</h6>
+                                <p class="card-text">$@product.Price</p>
+                                <p class="card-text"><small class="text-muted">In stock: @product.StockQuantity</small></p>
+                                <a href="@Url.Action("Product", new { id = product.Id })" class="btn btn-primary btn-sm">View Details</a>
+                                <form method="post" action="@Url.Action("AddToCart", "Cart")" class="d-inline">
+                                    <input type="hidden" name="productId" value="@product.Id" />
+                                    <input type="hidden" name="quantity" value="1" />
+                                    <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- New Arrivals -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5>New Arrivals</h5>
+                </div>
+                <div class="card-body">
+                    @foreach (var product in Model.NewArrivals)
+                    {
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <h6 class="card-title">@product.Name</h6>
+                                <p class="card-text">$@product.Price</p>
+                                <p class="card-text"><small class="text-muted">Added: @product.CreatedDate.ToString("MMM dd, yyyy")</small></p>
+                                <a href="@Url.Action("Product", new { id = product.Id })" class="btn btn-primary btn-sm">View Details</a>
+                                <form method="post" action="@Url.Action("AddToCart", "Cart")" class="d-inline">
+                                    <input type="hidden" name="productId" value="@product.Id" />
+                                    <input type="hidden" name="quantity" value="1" />
+                                    <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Statistics -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Category Statistics</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var stat in Model.CategoryStats)
+                        {
+                            <div class="col-md-3 mb-2">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h6>@stat.Key</h6>
+                                        <h4 class="text-primary">@stat.Value</h4>
+                                        <small class="text-muted">products</small>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <a href="@Url.Action("RedisDemo")" class="btn btn-outline-primary me-2">Redis Demo</a>
+            <a href="@Url.Action("Index", "Cart")" class="btn btn-outline-success">View Cart</a>
+        </div>
+    </div>
+</div>
